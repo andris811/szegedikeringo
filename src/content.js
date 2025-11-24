@@ -17,13 +17,13 @@ export const content = {
         subtitle: "Hagyomány, Szépség és Szabadság"
       },
       intro: {
-        title: "Üdvözlöm a tenyészetemben!",
-        text: "Több mint két évtizede foglalkozom a Szegedi Magasszálló Keringő galambfajta tenyésztésével. Ez a gyönyörű magyar fajta nemcsak a szívem csücske, hanem életem részévé vált. Minden egyes madár egyedi, és büszkeséggel tölt el, hogy hozzájárulhatok ennek a különleges fajta megőrzéséhez és népszerűsítéséhez."
+        title: "Üdvözlöm a az oldalamon!",
+        text: "Több mint négy évtizede foglalkozom a Szegedi Magasszálló Keringő galambfajta tenyésztésével. Ez a gyönyörű magyar fajta nemcsak a szívem csücske, hanem életem részévé vált. Minden egyes madár egyedi, és büszkeséggel tölt el, hogy hozzájárulhatok ennek a különleges fajta megőrzéséhez és népszerűsítéséhez."
       },
       features: [
         {
           title: "Tapasztalt Tenyésztés",
-          description: "Több mint 20 év szakmai tapasztalat a Szegedi Keringő tenyésztésében"
+          description: "Több mint 40 év szakmai tapasztalat a Szegedi Keringő tenyésztésében"
         },
         {
           title: "Minőségi Állomány",
@@ -44,7 +44,7 @@ export const content = {
       story: {
         title: "Az én történetem",
         paragraphs: [
-          "Gyerekkorom óta vonzottak a galambok. Amit hobbként kezdtem fiatal fiúként, az mára életem részévé, szenvedélyemmé vált. A Szegedi Magasszálló Keringő az első pillanattól lenyűgözött -RepülésükRepülésük eleganciája, színpompás tollazatuk és egyedi karakterük azonnal megfogott.",
+          "Gyerekkorom óta vonzottak a galambok. Amit hobbként kezdtem fiatal fiúként, az mára életem részévé, szenvedélyemmé vált. A Szegedi Magasszálló Keringő az első pillanattól lenyűgözött -Repülésük eleganciája, színpompás tollazatuk és egyedi karakterük azonnal megfogott.",
           "Több mint húsz éve foglalkozom tudatosan ezzel a fajtával. Az évek során nemcsak tenyésztőként, hanem a fajta igazi rajongójaként is megismertem minden apró részletüket. Részt vettem számos kiállításon, találkozókon, és kapcsolatot építettem ki más tenyésztőkkel itthon és külföldön egyaránt.",
           "Célom nem csupán szép madarakat tenyészteni, hanem hozzájárulni a Szegedi Keringő megőrzéséhez és népszerűsítéséhez. Hiszem, hogy ez a fajta Magyarország kulturális örökségének része, és felelősségünk továbbvinni a következő generációknak."
         ]

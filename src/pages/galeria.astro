@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Gallery from '../components/Gallery.astro';
+import { content } from '../content.js';
+
+const lang = 'hu';
+const galleryContent = content[lang].gallery;
+
+// Gallery items with categories
+const galleryItems = [
+  { src: '/images/pigeon1.jpg', alt: 'Szegedi Keringő galamb repülés közben', category: 'flying' },
+  { src: '/images/pigeon2.jpg', alt: 'Törzsállomány példány', category: 'breeding' },
+  { src: '/images/pigeon3.jpg', alt: 'Fiatal madarak', category: 'young' },
+  { src: '/images/pigeon4.jpg', alt: 'Kiállítási példány', category: 'events' },
+  { src: '/images/pigeon5.jpg', alt: 'Galambok csoportja', category: 'breeding' },
+  { src: '/images/pigeon6.jpg', alt: 'Repülési bemutató', category: 'flying' },
+  { src: '/images/pigeon7.jpg', alt: 'Fiatal példányok', category: 'young' },
+  { src: '/images/pigeon8.jpg', alt: 'Kiállítás díjnyertes', category: 'events' },
+  { src: '/images/pigeon9.jpg', alt: 'Tenyészetünk madarai', category: 'breeding' },
+];
+
+const categories = [
+  { key: 'all', label: galleryContent.filter.all },
+  { key: 'breeding', label: galleryContent.filter.breeding },
+  { key: 'young', label: galleryContent.filter.young },
+  { key: 'flying', label: galleryContent.filter.flying },
+  { key: 'events', label: galleryContent.filter.events },
+];
+---
+
+<Layout
+  title="Galéria | Szegedi Keringő Tenyészet"
+  description="Gyönyörű fotók a Szegedi Magasszálló Keringő galambokról - törzsállomány, repülés, kiállítások"
+>
+  <!-- Hero Section -->
+  <Hero
+    title={galleryContent.title}
+    subtitle={galleryContent.subtitle}
+  />
+
+  <!-- Filter Section -->
+  <section class="py-8 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        {categories.map((category) => (
+          <button
+            class={`filter-btn px-6 py-2 rounded-full font-medium transition-colors ${
+              category.key === 'all'
+                ? 'bg-primary-600 text-white'
+                : 'bg-white text-gray-700 hover:bg-primary-100'
+            }`}
+            data-category={category.key}
+          >
+            {category.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="gallery-grid">
+        {galleryItems.map((item) => (
+          <div class={`gallery-item group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white ${item.category}`}>
+            <div class="aspect-[4/3] overflow-hidden">
+              <!-- Placeholder image with gradient -->
+              <div class="w-full h-full bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+                <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Overlay with caption -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-0 left-0 right-0 p-4">
+                <p class="text-white font-medium">{item.alt}</p>
+                <p class="text-white/70 text-sm mt-1">{categories.find(cat => cat.key === item.category)?.label}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.dataset.category;
+
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-primary-600', 'text-white');
+          btn.classList.add('bg-white', 'text-gray-700');
+        });
+        button.classList.remove('bg-white', 'text-gray-700');
+        button.classList.add('bg-primary-600', 'text-white');
+
+        // Filter items
+        galleryItems.forEach(item => {
+          if (category === 'all' || item.classList.contains(category)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+  }
+</style>
