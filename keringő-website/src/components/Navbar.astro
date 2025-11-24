@@ -1,0 +1,156 @@
+---
+import Logo from './Logo.astro';
+import { content } from '../content.js';
+
+const { pathname } = Astro.url;
+const lang = 'hu'; // Default language
+const nav = content[lang].nav;
+
+const navLinks = [
+  { href: '/', label: nav.home },
+  { href: '/a-tenyesztorol', label: nav.about },
+  { href: '/a-fajtarol', label: nav.breed },
+  { href: '/galeria', label: nav.gallery },
+  { href: '/kapcsolat', label: nav.contact },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') {
+    return pathname === '/';
+  }
+  return pathname.startsWith(href);
+};
+---
+
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <Logo />
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`text-sm font-medium transition-colors hover:text-primary-600 ${
+              isActive(link.href)
+                ? 'text-primary-600 border-b-2 border-primary-600'
+                : 'text-gray-700'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Language Switcher Placeholder -->
+      <div class="hidden md:flex items-center space-x-2">
+        <button
+          class="px-3 py-1 text-sm font-medium text-white bg-primary-600 rounded hover:bg-primary-700 transition-colors"
+        >
+          HU
+        </button>
+        <button
+          class="px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded hover:bg-gray-200 transition-colors opacity-50 cursor-not-allowed"
+          disabled
+          title="Hamarosan"
+        >
+          EN
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Menü megnyitása</span>
+        <!-- Menu icon -->
+        <svg
+          class="block h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+        <!-- Close icon (hidden by default) -->
+        <svg
+          class="hidden h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+            isActive(link.href)
+              ? 'text-primary-600 bg-primary-50'
+              : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <!-- Mobile Language Switcher -->
+      <div class="flex space-x-2 px-3 py-2">
+        <button
+          class="px-3 py-1 text-sm font-medium text-white bg-primary-600 rounded"
+        >
+          HU
+        </button>
+        <button
+          class="px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded opacity-50 cursor-not-allowed"
+          disabled
+          title="Hamarosan"
+        >
+          EN
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  if (button && menu) {
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', (!isExpanded).toString());
+
+      menu.classList.toggle('hidden');
+
+      // Toggle icons
+      const icons = button.querySelectorAll('svg');
+      icons.forEach((icon) => icon.classList.toggle('hidden'));
+    });
+  }
+</script>

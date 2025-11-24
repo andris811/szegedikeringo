@@ -1,0 +1,59 @@
+---
+interface GalleryItem {
+  src: string;
+  alt: string;
+  category?: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+  columns?: 2 | 3 | 4;
+}
+
+const { items, columns = 3 } = Astro.props;
+
+const gridClasses = {
+  2: 'md:grid-cols-2',
+  3: 'md:grid-cols-3',
+  4: 'md:grid-cols-4',
+};
+---
+
+<div class={`grid grid-cols-1 sm:grid-cols-2 ${gridClasses[columns]} gap-6`}>
+  {items.map((item) => (
+    <div class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+      <div class="aspect-[4/3] overflow-hidden">
+        <!-- Placeholder image with gradient -->
+        <div class="w-full h-full bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <!-- When you add real images, uncomment this: -->
+        <!--
+        <img
+          src={item.src}
+          alt={item.alt}
+          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+          loading="lazy"
+        />
+        -->
+      </div>
+
+      <!-- Overlay with caption -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <p class="text-white font-medium">{item.alt}</p>
+          {item.category && (
+            <p class="text-white/70 text-sm mt-1">{item.category}</p>
+          )}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  // Optional: Add lightbox functionality later
+  // For now, clicking on images does nothing
+</script>
