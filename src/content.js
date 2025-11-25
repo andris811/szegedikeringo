@@ -70,7 +70,7 @@ export const content = {
         title: "Tapasztalat",
         list: [
           "Több mint 50 év a fajta tenyésztésében",
-          "Aktív tag a Magyar Díszgalamb Tenyésztők Egyesületében",
+          "Aktív tag a Magyar Galamb- és Kisállattenyésztők Országos Szövetségében",
           "Rendszeres részvétel kiállításokon és találkozókon",
           "Kapcsolat tenyésztőkkel itthon és külföldön"
         ]
@@ -94,16 +94,17 @@ export const content = {
       },
 
       characteristics: {
-        title: "Jellemzők és Szabvány",
+        title: "Jellemzők",
         appearance: {
           title: "Megjelenés",
           points: [
             "Közepes méret, harmonikus testalkat",
             "Büszke, egyenes tartás",
             "Telt mellkas, széles hátvonal",
-            "Rövid, sima tollazat jellemző színekben: vörös, sárga, kék, fekete és változataik",
+            "Rövid, sima tollazat, jellemző változatok: egyszínű, örvös és szívhátú",
+            "Színváltozatok: vörös, sárga, kék, fekete, fehér, fakó",
             "Élénk, kifejező szemek",
-            "Rövid, erős csőr"
+            "Középhosszú, erős csőr"
           ]
         },
         flying: {
@@ -128,8 +129,8 @@ export const content = {
       },
 
       standard: {
-        title: "Fajta Szabvány",
-        text: "A Szegedi Magasszálló Keringő fajta pontos szabvánnyal rendelkezik, amely meghatározza az ideális példány tulajdonságait. A szabvány tartalmazza a test felépítését, tollazat színét és minőségét, valamint a repülési képességeket. A kiállításokon szigorúan ezen szabvány szerint bírálják el a madarakat."
+        title: "Fajtaleírás",
+        text: "A Szegedi Magasszálló Keringő fajta pontos fajtaleírással rendelkezik, amely meghatározza az ideális példány tulajdonságait. A fajtaleírás tartalmazza a test felépítését, tollazat színét és minőségét, valamint a repülési képességeket. A kiállításokon szigorúan ezen leírás szerint bírálják el a madarakat."
       },
       ctaSection: {
         title: "Tekintse meg fényképeimet!",
