@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import { content } from '../content.js';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import { content } from '../../content.js';
 
-const lang = 'hu';
+const lang = 'sr';
 const aboutContent = content[lang].about;
 ---
 
 <Layout
-  title="A Tenyésztőről | Szegedi Magasszálló Keringő Tenyészet"
-  description="Ismerje meg a tenyésztőt, aki több mint 20 éve foglalkozik szenvedélyesen a Szegedi Magasszálló Keringő galambok tenyésztésével."
+  title="O Uzgajivaču | Uzgoj Segedinskih Viskoleta"
+  description="Upoznajte uzgajivača koji sa strašću uzgaja golubove rase Segedinski Viskoleti već više od 20 godina."
 >
   <!-- Hero Section -->
   <Hero
@@ -33,7 +33,7 @@ const aboutContent = content[lang].about;
             <div class="aspect-[3/4] bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
               <img
                 src="/images/breeder.jpg"
-                alt="Varga András"
+                alt="Varga Andraš - Uzgajivač Segedinskih Viskoleta"
                 class="w-full h-full object-cover"
                 onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';"
               />
@@ -110,7 +110,7 @@ const aboutContent = content[lang].about;
         {aboutContent.ctaSection.text}
       </p>
       <a
-        href="/a-fajtarol"
+        href="/sr/o-rasi"
         class="inline-block px-8 py-3 bg-white dark:bg-gray-800 text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
       >
         {aboutContent.ctaSection.button}

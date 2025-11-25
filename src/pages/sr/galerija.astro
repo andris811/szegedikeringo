@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Gallery from '../components/Gallery.astro';
-import { content } from '../content.js';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Gallery from '../../components/Gallery.astro';
+import { content } from '../../content.js';
 import fs from 'fs';
 import path from 'path';
 
-const lang = 'hu';
+const lang = 'sr';
 const galleryContent = content[lang].gallery;
 
 // Category configuration with labels
@@ -37,7 +37,7 @@ categoriesToScan.forEach((category) => {
       if (imageExtensions.includes(ext)) {
         galleryItems.push({
           src: `/images/gallery/${category}/${file}`,
-          alt: `Szegedi Magasszálló Keringő - ${categoryConfig.find(c => c.key === category)?.label || category}`,
+          alt: `Segedinski Viskoleti - ${categoryConfig.find(c => c.key === category)?.label || category}`,
           category: category
         });
       }
@@ -55,8 +55,8 @@ const categoryLabels: Record<string, string> = {
 ---
 
 <Layout
-  title="Galéria | Szegedi Magasszálló Keringő Tenyészet"
-  description="Gyönyörű fotók a Szegedi Magasszálló Keringő galambokról - törzsállomány, repülés, kiállítások"
+  title="Galerija | Uzgoj Segedinskih Viskoleta"
+  description="Prelepe fotografije golubova rase Segedinski Viskoleti - uzgajivačke grlo, let, izložbe"
 >
   <!-- Hero Section -->
   <Hero
@@ -152,7 +152,7 @@ const categoryLabels: Record<string, string> = {
     <button
       id="close-lightbox"
       class="absolute top-4 right-4 text-white hover:text-primary-400 transition-colors z-50"
-      aria-label="Bezárás"
+      aria-label="Zatvori"
     >
       <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -162,7 +162,7 @@ const categoryLabels: Record<string, string> = {
     <button
       id="prev-image"
       class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-primary-400 transition-colors p-2 hover:bg-white dark:bg-gray-800/10 rounded-full"
-      aria-label="Előző"
+      aria-label="Prethodna"
     >
       <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -172,7 +172,7 @@ const categoryLabels: Record<string, string> = {
     <button
       id="next-image"
       class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-primary-400 transition-colors p-2 hover:bg-white dark:bg-gray-800/10 rounded-full"
-      aria-label="Következő"
+      aria-label="Sledeća"
     >
       <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

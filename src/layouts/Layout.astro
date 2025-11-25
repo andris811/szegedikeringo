@@ -7,11 +7,16 @@ interface Props {
   description?: string;
 }
 
+const { pathname } = Astro.url;
+const isEnglish = pathname.startsWith('/en');
+const isSerbian = pathname.startsWith('/sr');
+const htmlLang = isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu');
+
 const { title, description = "Szegedi Magasszálló Keringő galamb tenyészet - Minőségi díszgalambok több mint 20 éves tapasztalattal" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="hu">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -32,7 +37,7 @@ const { title, description = "Szegedi Magasszálló Keringő galamb tenyészet -
 
     <title>{title}</title>
   </head>
-  <body class="font-sans antialiased bg-gray-50">
+  <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 transition-colors">
     <Navbar />
 
     <main class="min-h-screen">

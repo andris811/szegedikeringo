@@ -1,14 +1,20 @@
 ---
 // Logo using the image from public folder
+const { pathname } = Astro.url;
+const isEnglish = pathname.startsWith('/en');
+const isSerbian = pathname.startsWith('/sr');
+const homeUrl = isSerbian ? '/sr/' : (isEnglish ? '/en/' : '/');
+const logoAlt = isSerbian ? 'Segedinski Viskoleti Logo' : (isEnglish ? 'Szegedin Highflyer Logo' : 'Szegedi Magasszálló Keringő Logo');
+const logoText = isSerbian ? 'Segedinski Viskoleti' : (isEnglish ? 'Szegedin Highflyer' : 'Szegedi Magasszálló Keringő');
 ---
 
-<a href="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+<a href={homeUrl} class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
   <img
     src="/logo.png"
-    alt="Szegedi Magasszálló Keringő Logo"
+    alt={logoAlt}
     class="h-20 w-auto"
   />
   <span class="font-serif text-xl font-bold text-gray-800 hidden lg:block">
-    Szegedi Magasszálló Keringő
+    {logoText}
   </span>
 </a>

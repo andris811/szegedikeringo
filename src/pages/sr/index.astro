@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import { content } from '../content.js';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import { content } from '../../content.js';
 
-const lang = 'hu';
+const lang = 'sr';
 const homeContent = content[lang].home;
 ---
 
 <Layout
-  title="Szegedi Magasszálló Keringő Tenyészet"
-  description="Minőségi Szegedi Magasszálló Keringő galambok tenyésztése több mint 40 éves tapasztalattal. Hagyomány, szépség és szabadság."
+  title="Uzgoj Segedinskih Viskoleta"
+  description="Kvalitetan uzgoj golubova rase Segedinski Viskoleti sa više od 50 godina iskustva. Tradicija, lepota i sloboda."
 >
   <!-- Hero Section -->
   <Hero
@@ -76,7 +76,7 @@ const homeContent = content[lang].home;
             {homeContent.imageSection.text}
           </p>
           <a
-            href="/a-fajtarol"
+            href="/sr/o-rasi"
             class="inline-block px-6 py-3 bg-primary-600 dark:bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors"
           >
             {homeContent.imageSection.button}
@@ -86,7 +86,7 @@ const homeContent = content[lang].home;
           <div class="w-full h-80 bg-gradient-to-br from-primary-300 to-primary-500 dark:from-primary-800 dark:to-primary-900 flex items-center justify-center relative">
             <img
               src="/images/home-feature.jpg"
-              alt="Szegedi Magasszálló Keringő galamb"
+              alt="Segedinski Viskoleti golub"
               class="w-full h-full object-cover"
               onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';"
             />
@@ -111,7 +111,7 @@ const homeContent = content[lang].home;
         {homeContent.ctaSection.text}
       </p>
       <a
-        href="/kapcsolat"
+        href="/sr/kontakt"
         class="inline-block px-8 py-3 bg-white dark:bg-gray-100 text-primary-600 dark:text-primary-800 font-bold rounded-lg hover:bg-gray-100 dark:hover:bg-white transition-colors"
       >
         {homeContent.ctaSection.button}

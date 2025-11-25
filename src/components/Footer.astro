@@ -1,14 +1,39 @@
 ---
 import { content } from '../content.js';
 
-const lang = 'hu';
+const { pathname } = Astro.url;
+const isEnglish = pathname.startsWith('/en');
+const isSerbian = pathname.startsWith('/sr');
+const lang = isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu');
+
 const footer = content[lang].footer;
 const nav = content[lang].nav;
 const contactInfo = content[lang].contact.info;
 const currentYear = new Date().getFullYear();
+
+// Adjust navigation links based on language
+const navLinks = isSerbian ? {
+  home: '/sr/',
+  about: '/sr/o-uzgajivaciju',
+  breed: '/sr/o-rasi',
+  gallery: '/sr/galerija',
+  contact: '/sr/kontakt'
+} : isEnglish ? {
+  home: '/en/',
+  about: '/en/about-the-breeder',
+  breed: '/en/about-the-breed',
+  gallery: '/en/gallery',
+  contact: '/en/contact'
+} : {
+  home: '/',
+  about: '/a-tenyesztorol',
+  breed: '/a-fajtarol',
+  gallery: '/galeria',
+  contact: '/kapcsolat'
+};
 ---
 
-<footer class="bg-primary-900 text-gray-300">
+<footer class="bg-primary-900 dark:bg-gray-900 text-gray-300 dark:text-gray-400 transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- About Section -->
@@ -24,27 +49,27 @@ const currentYear = new Date().getFullYear();
         <h3 class="text-white text-lg font-semibold mb-4">{footer.links.title}</h3>
         <ul class="space-y-2">
           <li>
-            <a href="/" class="text-sm hover:text-primary-400 transition-colors">
+            <a href={navLinks.home} class="text-sm hover:text-primary-400 transition-colors">
               {nav.home}
             </a>
           </li>
           <li>
-            <a href="/a-tenyesztorol" class="text-sm hover:text-primary-400 transition-colors">
+            <a href={navLinks.about} class="text-sm hover:text-primary-400 transition-colors">
               {nav.about}
             </a>
           </li>
           <li>
-            <a href="/a-fajtarol" class="text-sm hover:text-primary-400 transition-colors">
+            <a href={navLinks.breed} class="text-sm hover:text-primary-400 transition-colors">
               {nav.breed}
             </a>
           </li>
           <li>
-            <a href="/galeria" class="text-sm hover:text-primary-400 transition-colors">
+            <a href={navLinks.gallery} class="text-sm hover:text-primary-400 transition-colors">
               {nav.gallery}
             </a>
           </li>
           <li>
-            <a href="/kapcsolat" class="text-sm hover:text-primary-400 transition-colors">
+            <a href={navLinks.contact} class="text-sm hover:text-primary-400 transition-colors">
               {nav.contact}
             </a>
           </li>

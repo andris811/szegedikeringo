@@ -3,10 +3,27 @@ import Logo from './Logo.astro';
 import { content } from '../content.js';
 
 const { pathname } = Astro.url;
-const lang = 'hu'; // Default language
+
+// Detect language from URL
+const isEnglish = pathname.startsWith('/en');
+const isSerbian = pathname.startsWith('/sr');
+const lang = isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu');
 const nav = content[lang].nav;
 
-const navLinks = [
+// Define navigation links based on language
+const navLinks = isSerbian ? [
+  { href: '/sr/', label: nav.home },
+  { href: '/sr/o-uzgajivaciju', label: nav.about },
+  { href: '/sr/o-rasi', label: nav.breed },
+  { href: '/sr/galerija', label: nav.gallery },
+  { href: '/sr/kontakt', label: nav.contact },
+] : isEnglish ? [
+  { href: '/en/', label: nav.home },
+  { href: '/en/about-the-breeder', label: nav.about },
+  { href: '/en/about-the-breed', label: nav.breed },
+  { href: '/en/gallery', label: nav.gallery },
+  { href: '/en/contact', label: nav.contact },
+] : [
   { href: '/', label: nav.home },
   { href: '/a-tenyesztorol', label: nav.about },
   { href: '/a-fajtarol', label: nav.breed },
@@ -14,15 +31,54 @@ const navLinks = [
   { href: '/kapcsolat', label: nav.contact },
 ];
 
-const isActive = (href: string) => {
-  if (href === '/') {
-    return pathname === '/';
+// Language switcher URLs - map current page to all languages
+const getLanguageUrls = () => {
+  // Hungarian URLs
+  if (!isEnglish && !isSerbian) {
+    if (pathname === '/') return { hu: '/', en: '/en/', sr: '/sr/' };
+    if (pathname.includes('/a-tenyesztorol')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju' };
+    if (pathname.includes('/a-fajtarol')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi' };
+    if (pathname.includes('/galeria')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija' };
+    if (pathname.includes('/kapcsolat')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt' };
+    return { hu: '/', en: '/en/', sr: '/sr/' };
   }
-  return pathname.startsWith(href);
+
+  // English URLs
+  if (isEnglish) {
+    if (pathname === '/en/' || pathname === '/en') return { hu: '/', en: '/en/', sr: '/sr/' };
+    if (pathname.includes('/about-the-breeder')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju' };
+    if (pathname.includes('/about-the-breed')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi' };
+    if (pathname.includes('/gallery')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija' };
+    if (pathname.includes('/contact')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt' };
+    return { hu: '/', en: '/en/', sr: '/sr/' };
+  }
+
+  // Serbian URLs
+  if (isSerbian) {
+    if (pathname === '/sr/' || pathname === '/sr') return { hu: '/', en: '/en/', sr: '/sr/' };
+    if (pathname.includes('/o-uzgajivaciju')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju' };
+    if (pathname.includes('/o-rasi')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi' };
+    if (pathname.includes('/galerija')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija' };
+    if (pathname.includes('/kontakt')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt' };
+    return { hu: '/', en: '/en/', sr: '/sr/' };
+  }
+
+  return { hu: '/', en: '/en/', sr: '/sr/' };
+};
+
+const languageUrls = getLanguageUrls();
+
+const isActive = (href: string) => {
+  // Exact match for home pages
+  if (href === '/' || href === '/en/' || href === '/sr/') {
+    return pathname === '/' || pathname === '/en/' || pathname === '/en' || pathname === '/sr/' || pathname === '/sr';
+  }
+  // For other pages, match exactly (pathname should be href or href/)
+  return pathname === href || pathname === href + '/';
 };
 ---
 
-<nav class="bg-white shadow-md sticky top-0 z-50">
+<nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
@@ -33,10 +89,10 @@ const isActive = (href: string) => {
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class={`text-sm font-medium transition-colors hover:text-primary-600 ${
+            class={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
               isActive(link.href)
-                ? 'text-primary-600 border-b-2 border-primary-600'
-                : 'text-gray-700'
+                ? 'text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400'
+                : 'text-gray-700 dark:text-gray-200'
             }`}
           >
             {link.label}
@@ -44,73 +100,139 @@ const isActive = (href: string) => {
         ))}
       </div>
 
-      <!-- Language Switcher Placeholder -->
+      <!-- Theme Toggle & Language Switcher -->
       <div class="hidden md:flex items-center space-x-2">
+        <!-- Theme Toggle -->
         <button
-          class="px-3 py-1 text-sm font-medium text-white bg-primary-600 rounded hover:bg-primary-700 transition-colors"
+          id="theme-toggle"
+          class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+          aria-label="Toggle theme"
         >
-          HU
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
         </button>
-        <button
-          class="px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded hover:bg-gray-200 transition-colors opacity-50 cursor-not-allowed"
-          disabled
-          title="Hamarosan"
-        >
-          EN
-        </button>
+
+        <!-- Language Switcher Dropdown -->
+        <div class="relative">
+          <button
+            id="lang-dropdown-btn"
+            class="px-3 py-2 text-2xl rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-all flex items-center gap-1"
+            aria-label="Change language"
+          >
+            {!isEnglish && !isSerbian && '🇭🇺'}
+            {isEnglish && '🇬🇧'}
+            {isSerbian && '🇷🇸'}
+            <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            id="lang-dropdown"
+            class="hidden absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 min-w-[150px] z-50"
+          >
+            {(!isEnglish || isSerbian) && (
+              <a
+                href={languageUrls.hu}
+                class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <span class="text-2xl">🇭🇺</span>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Magyar</span>
+              </a>
+            )}
+            {!isEnglish && (
+              <a
+                href={languageUrls.en}
+                class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <span class="text-2xl">🇬🇧</span>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">English</span>
+              </a>
+            )}
+            {!isSerbian && (
+              <a
+                href={languageUrls.sr}
+                class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <span class="text-2xl">🇷🇸</span>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Srpski</span>
+              </a>
+            )}
+          </div>
+        </div>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="mobile-menu-button"
-        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Menü megnyitása</span>
-        <!-- Menu icon -->
-        <svg
-          class="block h-6 w-6"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <!-- Mobile Theme Toggle & Menu Button -->
+      <div class="md:hidden flex items-center space-x-2">
+        <!-- Mobile Theme Toggle -->
+        <button
+          id="mobile-theme-toggle"
+          class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+          aria-label="Toggle theme"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-        <!-- Close icon (hidden by default) -->
-        <svg
-          class="hidden h-6 w-6"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+          <svg id="mobile-theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="mobile-theme-toggle-light-icon" class="hidden w-5 h-5 text-gray-700 dark:text-gray-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+          aria-expanded="false"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
+          <span class="sr-only">Menü megnyitása</span>
+          <!-- Menu icon -->
+          <svg
+            class="block h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <!-- Close icon (hidden by default) -->
+          <svg
+            class="hidden h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden">
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
     <div class="px-2 pt-2 pb-3 space-y-1">
       {navLinks.map((link) => (
         <a
           href={link.href}
           class={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
             isActive(link.href)
-              ? 'text-primary-600 bg-primary-50'
-              : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+              ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-gray-700'
+              : 'text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700'
           }`}
         >
           {link.label}
@@ -118,39 +240,170 @@ const isActive = (href: string) => {
       ))}
 
       <!-- Mobile Language Switcher -->
-      <div class="flex space-x-2 px-3 py-2">
+      <div class="px-3 py-2">
         <button
-          class="px-3 py-1 text-sm font-medium text-white bg-primary-600 rounded"
+          id="mobile-lang-dropdown-btn"
+          class="w-full px-3 py-2 text-xl rounded bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all flex items-center justify-between"
+          aria-label="Change language"
         >
-          HU
+          <span class="flex items-center gap-2">
+            <span class="text-2xl">
+              {!isEnglish && !isSerbian && '🇭🇺'}
+              {isEnglish && '🇬🇧'}
+              {isSerbian && '🇷🇸'}
+            </span>
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-200">
+              {!isEnglish && !isSerbian && 'Magyar'}
+              {isEnglish && 'English'}
+              {isSerbian && 'Srpski'}
+            </span>
+          </span>
+          <svg class="w-4 h-4 text-gray-600 dark:text-gray-300 mobile-lang-chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
-        <button
-          class="px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded opacity-50 cursor-not-allowed"
-          disabled
-          title="Hamarosan"
-        >
-          EN
-        </button>
+        <div id="mobile-lang-dropdown" class="hidden mt-2 space-y-1">
+          {(!isEnglish || isSerbian) && (
+            <a
+              href={languageUrls.hu}
+              class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+            >
+              <span class="text-2xl">🇭🇺</span>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Magyar</span>
+            </a>
+          )}
+          {!isEnglish && (
+            <a
+              href={languageUrls.en}
+              class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+            >
+              <span class="text-2xl">🇬🇧</span>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-200">English</span>
+            </a>
+          )}
+          {!isSerbian && (
+            <a
+              href={languageUrls.sr}
+              class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+            >
+              <span class="text-2xl">🇷🇸</span>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Srpski</span>
+            </a>
+          )}
+        </div>
       </div>
     </div>
   </div>
 </nav>
 
+<script is:inline>
+  // Theme initialization (runs immediately to prevent flash)
+  (function() {
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  })();
+</script>
+
 <script>
-  // Mobile menu toggle
-  const button = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
+  // Theme toggle function
+  function updateThemeIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
 
-  if (button && menu) {
-    button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', (!isExpanded).toString());
+    // Desktop icons
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-      menu.classList.toggle('hidden');
+    // Mobile icons
+    const mobileDarkIcon = document.getElementById('mobile-theme-toggle-dark-icon');
+    const mobileLightIcon = document.getElementById('mobile-theme-toggle-light-icon');
 
-      // Toggle icons
-      const icons = button.querySelectorAll('svg');
-      icons.forEach((icon) => icon.classList.toggle('hidden'));
-    });
+    if (isDark) {
+      darkIcon?.classList.remove('hidden');
+      lightIcon?.classList.add('hidden');
+      mobileDarkIcon?.classList.remove('hidden');
+      mobileLightIcon?.classList.add('hidden');
+    } else {
+      darkIcon?.classList.add('hidden');
+      lightIcon?.classList.remove('hidden');
+      mobileDarkIcon?.classList.add('hidden');
+      mobileLightIcon?.classList.remove('hidden');
+    }
   }
+
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    updateThemeIcons();
+  }
+
+  // Initialize theme icons on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    updateThemeIcons();
+
+    // Desktop theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle?.addEventListener('click', toggleTheme);
+
+    // Mobile theme toggle
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    mobileThemeToggle?.addEventListener('click', toggleTheme);
+
+    // Mobile menu toggle
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+
+    if (button && menu) {
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', (!isExpanded).toString());
+
+        menu.classList.toggle('hidden');
+
+        // Toggle icons
+        const icons = button.querySelectorAll('svg');
+        icons.forEach((icon) => icon.classList.toggle('hidden'));
+      });
+    }
+
+    // Desktop language dropdown toggle
+    const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+    const langDropdown = document.getElementById('lang-dropdown');
+
+    if (langDropdownBtn && langDropdown) {
+      langDropdownBtn.addEventListener('click', () => {
+        langDropdown.classList.toggle('hidden');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!langDropdownBtn.contains(e.target as Node) && !langDropdown.contains(e.target as Node)) {
+          langDropdown.classList.add('hidden');
+        }
+      });
+    }
+
+    // Mobile language dropdown toggle
+    const mobileLangDropdownBtn = document.getElementById('mobile-lang-dropdown-btn');
+    const mobileLangDropdown = document.getElementById('mobile-lang-dropdown');
+    const mobileLangChevron = document.querySelector('.mobile-lang-chevron');
+
+    if (mobileLangDropdownBtn && mobileLangDropdown) {
+      mobileLangDropdownBtn.addEventListener('click', () => {
+        mobileLangDropdown.classList.toggle('hidden');
+        if (mobileLangChevron) {
+          mobileLangChevron.classList.toggle('rotate-180');
+        }
+      });
+    }
+  });
 </script>

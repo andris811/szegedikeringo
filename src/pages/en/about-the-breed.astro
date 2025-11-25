@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import { content } from '../content.js';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import { content } from '../../content.js';
 
-const lang = 'hu';
+const lang = 'en';
 const breedContent = content[lang].breed;
 ---
 
 <Layout
-  title="A Fajtáról | Szegedi Magasszálló Keringő"
-  description="Ismerje meg a Szegedi Magasszálló Keringő galamb fajta történetét, jellemzőit és különlegességeit."
+  title="About the Breed | Szegedin Highflyer"
+  description="Learn about the history, characteristics and unique features of the Szegedin Highflyer pigeon breed."
 >
   <!-- Hero Section -->
   <Hero
@@ -129,7 +129,7 @@ const breedContent = content[lang].breed;
         {breedContent.ctaSection.text}
       </p>
       <a
-        href="/galeria"
+        href="/en/gallery"
         class="inline-block px-8 py-3 bg-white dark:bg-gray-800 text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
       >
         {breedContent.ctaSection.button}
