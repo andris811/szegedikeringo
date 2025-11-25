@@ -8,26 +8,50 @@ const aboutContent = content[lang].about;
 ---
 
 <Layout
-  title="A Tenyésztőről | Szegedi Keringő Tenyészet"
+  title="A Tenyésztőről | Szegedi Magasszálló Keringő Tenyészet"
   description="Ismerje meg a tenyésztőt, aki több mint 20 éve foglalkozik szenvedélyesen a Szegedi Magasszálló Keringő galambok tenyésztésével."
 >
   <!-- Hero Section -->
   <Hero
     title={aboutContent.title}
     subtitle={aboutContent.subtitle}
+    image="/images/hero/about.jpg"
   />
 
-  <!-- Story Section -->
+  <!-- Story Section with Photo -->
   <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
         {aboutContent.story.title}
       </h2>
 
-      <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
-        {aboutContent.story.paragraphs.map((paragraph) => (
-          <p>{paragraph}</p>
-        ))}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Photo -->
+        <div class="order-2 md:order-1">
+          <div class="rounded-2xl overflow-hidden shadow-xl">
+            <!-- Placeholder for breeder photo -->
+            <div class="aspect-[3/4] bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+              <img
+                src="/images/breeder.jpg"
+                alt="Varga András"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-icon').style.display='flex';"
+              />
+              <div class="placeholder-icon absolute inset-0 flex items-center justify-center">
+                <svg class="w-32 h-32 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="order-1 md:order-2 space-y-6 text-lg text-gray-700 leading-relaxed">
+          {aboutContent.story.paragraphs.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -80,10 +104,10 @@ const aboutContent = content[lang].about;
   <section class="py-16 bg-primary-600 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-bold mb-4">
-        Szeretne többet megtudni a fajtáról?
+        Tudjon meg többet a fajtáról
       </h2>
       <p class="text-xl text-white/90 mb-8">
-        Fedezze fel a Szegedi Magasszálló Keringő galamb különlegességeit!
+        Ismerje meg a Szegedi Magasszálló Keringő különlegességeit!
       </p>
       <a
         href="/a-fajtarol"

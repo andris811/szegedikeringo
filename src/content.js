@@ -17,55 +17,68 @@ export const content = {
         subtitle: "Hagyomány, Szépség és Szabadság"
       },
       intro: {
-        title: "Üdvözlöm a az oldalamon!",
-        text: "Több mint négy évtizede foglalkozom a Szegedi Magasszálló Keringő galambfajta tenyésztésével. Ez a gyönyörű magyar fajta nemcsak a szívem csücske, hanem életem részévé vált. Minden egyes madár egyedi, és büszkeséggel tölt el, hogy hozzájárulhatok ennek a különleges fajta megőrzéséhez és népszerűsítéséhez."
+        title: "Üdvözlöm az oldalamon!",
+        text: "Több mint öt évtizede foglalkozom a Szegedi Magasszálló Keringő galambfajta tenyésztésével. Ez a gyönyörű magyar fajta nemcsak a szívem csücske, hanem életem részévé vált. Minden egyes madár egyedi, és örömmel járulok hozzá ennek a különleges fajta megőrzéséhez és népszerűsítéséhez."
       },
       features: [
         {
-          title: "Tapasztalt Tenyésztés",
-          description: "Több mint 40 év szakmai tapasztalat a Szegedi Keringő tenyésztésében"
+          title: "Magyar Hagyomány",
+          description: "A Szegedi Magasszálló Keringő Magyarország kulturális örökségének része, mely évszázados hagyományokat hordoz"
         },
         {
-          title: "Minőségi Állomány",
-          description: "Gondosan szelektált, szabványnak megfelelő törzsállomány"
+          title: "Különleges Repülés",
+          description: "Magasan köröznek az égen, elegáns, keringő mozgással - lenyűgöző látvány"
         },
         {
-          title: "Szakértelem és Tanácsadás",
-          description: "Szívesen segítek kezdő és haladó tenyésztőknek egyaránt"
+          title: "Gyönyörű Madarak",
+          description: "Színpompás tollazat, harmonikus testalkat és élénk természet jellemzi őket"
         }
       ],
-      cta: "Tudjon meg többet a fajtáról"
+      imageSection: {
+        title: "A Szegedi Magasszálló Keringő Szépsége",
+        text: "A Szegedi Magasszálló Keringő nemcsak gyönyörű megjelenésével, hanem különleges repülési stílusával is lenyűgözi a szemlélőket. Magas körözésük, elegáns mozgásuk valóban egyedülálló élményt nyújt.",
+        button: "Tudjon meg többet a fajtáról"
+      },
+      ctaSection: {
+        title: "Kérdése van a fajtával kapcsolatban?",
+        text: "Szívesen válaszolok bármilyen kérdésre a Szegedi Magasszálló Keringőről!",
+        button: "Kapcsolat"
+      }
     },
 
     // About Page - The Breeder
     about: {
       title: "A Tenyésztőről",
-      subtitle: "Szenvedély és Elhivatottság",
+      subtitle: "Szenvedély a Szegedi Magasszálló Keringőért",
       story: {
-        title: "Az én történetem",
+        title: "Röviden",
         paragraphs: [
-          "Gyerekkorom óta vonzottak a galambok. Amit hobbként kezdtem fiatal fiúként, az mára életem részévé, szenvedélyemmé vált. A Szegedi Magasszálló Keringő az első pillanattól lenyűgözött -Repülésük eleganciája, színpompás tollazatuk és egyedi karakterük azonnal megfogott.",
-          "Több mint húsz éve foglalkozom tudatosan ezzel a fajtával. Az évek során nemcsak tenyésztőként, hanem a fajta igazi rajongójaként is megismertem minden apró részletüket. Részt vettem számos kiállításon, találkozókon, és kapcsolatot építettem ki más tenyésztőkkel itthon és külföldön egyaránt.",
-          "Célom nem csupán szép madarakat tenyészteni, hanem hozzájárulni a Szegedi Keringő megőrzéséhez és népszerűsítéséhez. Hiszem, hogy ez a fajta Magyarország kulturális örökségének része, és felelősségünk továbbvinni a következő generációknak."
+          "Gyerekkorom óta vonzottak a galambok. A Szegedi Magasszálló Keringő az első pillanattól lenyűgözött - repülésük eleganciája, színpompás tollazatuk és egyedi karakterük azonnal megfogott.",
+          "Több mint öt évtizede foglalkozom ezzel a csodálatos fajtával. Hiszem, hogy a Szegedi Magasszálló Keringő Magyarország kulturális örökségének része, és fontos továbbvinni a következő generációknak."
         ]
       },
       philosophy: {
-        title: "Tenyésztési Filozófiám",
+        title: "Ami számít",
         points: [
-          "A szabvány tisztelete: Minden tenyésztési döntésnél a fajta szabványát tartom szem előtt",
-          "Egészség és jólét: Az állatok egészsége és komfortja mindig az első helyen áll",
-          "Tudásmegosztás: Szívesen segítek másoknak, mert együtt erősebbek vagyunk",
-          "Folyamatos tanulás: Mindig nyitott vagyok új ismeretekre és fejlődésre"
+          "A madarak egészsége és jóléte az első",
+          "A fajta szabványának tisztelete",
+          "A hagyományos értékek megőrzése",
+          "Tudásmegosztás más tenyésztőkkel"
         ]
       },
       achievements: {
-        title: "Eredmények és Elismerések",
+        title: "Tapasztalat",
         list: [
-          "Többszörös díjnyertes kiállításokon országszerte",
+          "Több mint 50 év a fajta tenyésztésében",
           "Aktív tag a Magyar Díszgalamb Tenyésztők Egyesületében",
-          "Törzsállomány-vizsgálaton kitüntetett minősítés",
-          "Sikeres exportálás és együttműködés külföldi tenyésztőkkel"
+          "Rendszeres részvétel kiállításokon és találkozókon",
+          "Kapcsolat tenyésztőkkel itthon és külföldön"
         ]
+      },
+      ctaSection: {
+        title: "Tudjon meg többet a fajtáról",
+        text: "Ismerje meg a Szegedi Magasszálló Keringő különlegességeit!",
+        button: "A Fajtáról"
       }
     },
 
@@ -95,7 +108,7 @@ export const content = {
         },
         flying: {
           title: "Repülési Stílus",
-          text: "A Szegedi Keringő legnagyobb értéke a repülése. Nagy magasságra emelkednek, majd ott körözve, szinte lebegve tartózkodnak hosszú időn keresztül. Repülésük harmonikus, elegáns - mintha táncolnának az égbolton. Ez a különleges repülési stílus évszázadok tenyésztési munkájának eredménye."
+          text: "A Szegedi Magasszálló Keringő legnagyobb értéke a repülése. Nagy magasságra emelkednek, majd ott körözve, szinte lebegve tartózkodnak hosszú időn keresztül. Repülésük harmonikus, elegáns - mintha táncolnának az égbolton. Ez a különleges repülési stílus évszázadok tenyésztési munkájának eredménye."
         },
         temperament: {
           title: "Természet és Viselkedés",
@@ -138,7 +151,7 @@ export const content = {
     contact: {
       title: "Kapcsolat",
       subtitle: "Vegye fel velem a kapcsolatot!",
-      intro: "Ha érdeklődik a Szegedi Magasszálló Keringő fajta iránt, kérdése van a tenyésztéssel kapcsolatban, vagy szeretne vásárolni, keressen bizalommal!",
+      intro: "Ha érdeklődik a Szegedi Magasszálló Keringő fajta iránt, vagy kérdése van a tenyésztéssel kapcsolatban, keressen bizalommal!",
 
       info: {
         title: "Elérhetőségek",
@@ -164,15 +177,15 @@ export const content = {
 
       social: {
         title: "Közösségi Média",
-        description: "Kövessen a közösségi oldalakon, ahol rendszeresen osztok meg fotókat, videókat és híreket a tenyészetemről!"
+        description: "Megtalálhat Facebook-on, Instagram-on és Viberen!"
       }
     },
 
     // Footer
     footer: {
       about: {
-        title: "Szegedi Keringő Tenyészet",
-        text: "Minőségi Szegedi Magasszálló Keringő galambok tenyésztése több mint 20 éves tapasztalattal."
+        title: "Szegedi Magasszálló Keringő Tenyészet",
+        text: "Szegedi Magasszálló Keringő galambok tenyésztése több mint 50 éves tapasztalattal."
       },
       links: {
         title: "Linkek",
