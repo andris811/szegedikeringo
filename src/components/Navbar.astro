@@ -134,7 +134,7 @@ const isActive = (href: string) => {
             id="lang-dropdown"
             class="hidden absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 min-w-[150px] z-50"
           >
-            {(!isEnglish || isSerbian) && (
+            {(isEnglish || isSerbian) && (
               <a
                 href={languageUrls.hu}
                 class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -143,7 +143,7 @@ const isActive = (href: string) => {
                 <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Magyar</span>
               </a>
             )}
-            {!isEnglish && (
+            {(!isEnglish) && (
               <a
                 href={languageUrls.en}
                 class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -152,7 +152,7 @@ const isActive = (href: string) => {
                 <span class="text-sm font-medium text-gray-700 dark:text-gray-200">English</span>
               </a>
             )}
-            {!isSerbian && (
+            {(!isSerbian) && (
               <a
                 href={languageUrls.sr}
                 class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -263,7 +263,7 @@ const isActive = (href: string) => {
           </svg>
         </button>
         <div id="mobile-lang-dropdown" class="hidden mt-2 space-y-1">
-          {(!isEnglish || isSerbian) && (
+          {(isEnglish || isSerbian) && (
             <a
               href={languageUrls.hu}
               class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
@@ -272,7 +272,7 @@ const isActive = (href: string) => {
               <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Magyar</span>
             </a>
           )}
-          {!isEnglish && (
+          {(!isEnglish) && (
             <a
               href={languageUrls.en}
               class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
@@ -281,7 +281,7 @@ const isActive = (href: string) => {
               <span class="text-sm font-medium text-gray-700 dark:text-gray-200">English</span>
             </a>
           )}
-          {!isSerbian && (
+          {(!isSerbian) && (
             <a
               href={languageUrls.sr}
               class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"

@@ -25,7 +25,7 @@ const homeContent = content[lang].home;
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
           {homeContent.intro.title}
         </h2>
-        <div class="w-24 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-6"></div>
+        <div class="w-24 h-1 bg-primary-600 dark:bg-gray-400 mx-auto mb-6"></div>
         <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
           {homeContent.intro.text}
         </p>
@@ -39,8 +39,8 @@ const homeContent = content[lang].home;
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {homeContent.features.map((feature, index) => (
           <div class="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-md hover:shadow-xl dark:shadow-gray-900/50 transition-shadow border border-transparent dark:border-gray-700">
-            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-primary-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-primary-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {index === 0 && (
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 )}
@@ -77,13 +77,13 @@ const homeContent = content[lang].home;
           </p>
           <a
             href="/en/about-the-breed"
-            class="inline-block px-6 py-3 bg-primary-600 dark:bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors"
+            class="inline-block px-6 py-3 bg-primary-600 dark:bg-gray-600 text-white font-medium rounded-lg hover:bg-primary-700 dark:hover:bg-gray-500 transition-colors"
           >
             {homeContent.imageSection.button}
           </a>
         </div>
         <div class="rounded-lg overflow-hidden shadow-lg dark:shadow-gray-900/50">
-          <div class="w-full h-80 bg-gradient-to-br from-primary-300 to-primary-500 dark:from-primary-800 dark:to-primary-900 flex items-center justify-center relative">
+          <div class="w-full h-80 bg-gradient-to-br from-primary-300 to-primary-500 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center relative">
             <img
               src="/images/home-feature.jpg"
               alt="Szegedin Highflyer pigeon"
@@ -102,7 +102,7 @@ const homeContent = content[lang].home;
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 bg-primary-600 dark:bg-primary-800 text-white transition-colors">
+  <section class="py-16 bg-primary-600 dark:bg-gray-700 text-white transition-colors">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
         {homeContent.ctaSection.title}
@@ -112,7 +112,7 @@ const homeContent = content[lang].home;
       </p>
       <a
         href="/en/contact"
-        class="inline-block px-8 py-3 bg-white dark:bg-gray-100 text-primary-600 dark:text-primary-800 font-bold rounded-lg hover:bg-gray-100 dark:hover:bg-white transition-colors"
+        class="inline-block px-8 py-3 bg-white dark:bg-gray-800 text-primary-600 dark:text-gray-100 font-bold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
       >
         {homeContent.ctaSection.button}
       </a>
