@@ -73,7 +73,7 @@ const categoryLabels: Record<string, string> = {
           <button
             class={`filter-btn px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
               category.key === 'all'
-                ? 'bg-primary-600 text-white shadow-lg'
+                ? 'bg-primary-600 dark:bg-gray-600 text-white shadow-lg'
                 : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-primary-100 dark:hover:bg-gray-600 hover:shadow-md shadow-sm'
             }`}
             data-category={category.key}
@@ -227,7 +227,7 @@ const categoryLabels: Record<string, string> = {
           btn.classList.add('bg-white', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-200', 'shadow-sm');
         });
         button.classList.remove('bg-white', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-200', 'shadow-sm');
-        button.classList.add('bg-primary-600', 'text-white', 'shadow-lg');
+        button.classList.add('bg-primary-600', 'dark:bg-gray-600', 'text-white', 'shadow-lg');
 
         // Filter items
         galleryItems.forEach(item => {

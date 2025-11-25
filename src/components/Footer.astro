@@ -4,7 +4,8 @@ import { content } from '../content.js';
 const { pathname } = Astro.url;
 const isEnglish = pathname.startsWith('/en');
 const isSerbian = pathname.startsWith('/sr');
-const lang = isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu');
+const isGerman = pathname.startsWith('/de');
+const lang = isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu'));
 
 const footer = content[lang].footer;
 const nav = content[lang].nav;
@@ -12,7 +13,13 @@ const contactInfo = content[lang].contact.info;
 const currentYear = new Date().getFullYear();
 
 // Adjust navigation links based on language
-const navLinks = isSerbian ? {
+const navLinks = isGerman ? {
+  home: '/de/',
+  about: '/de/uber-den-zuchter',
+  breed: '/de/uber-die-rasse',
+  gallery: '/de/galerie',
+  contact: '/de/kontakt'
+} : isSerbian ? {
   home: '/sr/',
   about: '/sr/o-uzgajivaciju',
   breed: '/sr/o-rasi',

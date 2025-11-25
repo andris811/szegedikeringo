@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import { content } from '../content.js';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import { content } from '../../content.js';
 
-const lang = 'hu';
+const lang = 'de';
 const aboutContent = content[lang].about;
 ---
 
 <Layout
-  title="A Tenyésztőről | Szegedi Magasszálló Keringő Tenyészet"
-  description="Ismerje meg a tenyésztőt, aki több mint 20 éve foglalkozik szenvedélyesen a Szegedi Magasszálló Keringő galambok tenyésztésével."
+  title="Über den Züchter | Szegediner Hochflieger Zucht"
+  description="Lernen Sie den Züchter kennen, der seit über 20 Jahren leidenschaftlich Szegediner Hochflieger Tauben züchtet."
 >
   <!-- Hero Section -->
   <Hero
@@ -33,7 +33,7 @@ const aboutContent = content[lang].about;
             <div class="aspect-[3/4] bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
               <img
                 src="/images/breeder.jpg"
-                alt="Varga András"
+                alt="András Varga - Szegediner Hochflieger Züchter"
                 class="w-full h-full object-cover"
                 onerror="this.style.display='none';"
               />
@@ -105,7 +105,7 @@ const aboutContent = content[lang].about;
         {aboutContent.ctaSection.text}
       </p>
       <a
-        href="/a-fajtarol"
+        href="/de/uber-die-rasse"
         class="inline-block px-8 py-3 bg-white dark:bg-gray-800 text-primary-600 dark:text-gray-100 font-bold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
       >
         {aboutContent.ctaSection.button}

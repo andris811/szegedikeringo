@@ -234,7 +234,7 @@ const contactContent = content[lang].contact;
         if (phone) {
           const link = document.createElement('a');
           link.href = `tel:${phone}`;
-          link.className = 'text-gray-600 hover:text-primary-600 transition-colors';
+          link.className = 'text-gray-600 dark:text-gray-200 hover:text-primary-600 dark:hover:text-gray-100 transition-colors font-medium';
           link.textContent = phoneDisplay;
           phoneBtn.replaceWith(link);
         }
@@ -249,7 +249,7 @@ const contactContent = content[lang].contact;
         if (email) {
           const link = document.createElement('a');
           link.href = `mailto:${email}`;
-          link.className = 'text-gray-600 hover:text-primary-600 transition-colors';
+          link.className = 'text-gray-600 dark:text-gray-200 hover:text-primary-600 dark:hover:text-gray-100 transition-colors font-medium';
           link.textContent = email;
           emailBtn.replaceWith(link);
         }

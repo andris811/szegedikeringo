@@ -1,5 +1,219 @@
 // Content for the website
 export const content = {
+  de: {
+    // Navigation
+    nav: {
+      home: "Startseite",
+      about: "Über den Züchter",
+      breed: "Über die Rasse",
+      gallery: "Galerie",
+      contact: "Kontakt"
+    },
+
+    // Home Page
+    home: {
+      hero: {
+        title: "Szegediner Hochflieger",
+        subtitle: "Tradition, Schönheit und Freiheit"
+      },
+      intro: {
+        title: "Willkommen auf meiner Seite!",
+        text: "Seit mehr als fünf Jahrzehnten züchte ich die Taubenrasse Szegediner Hochflieger. Diese wunderschöne ungarische Rasse ist nicht nur die Liebe meines Lebens geworden, sondern ein Teil meines Lebens. Jeder Vogel ist einzigartig, und ich freue mich, zur Erhaltung und Förderung dieser besonderen Rasse beizutragen."
+      },
+      features: [
+        {
+          title: "Ungarische Tradition",
+          description: "Der Szegediner Hochflieger ist Teil des ungarischen Kulturerbes und trägt jahrhundertealte Traditionen"
+        },
+        {
+          title: "Einzigartiger Flugstil",
+          description: "Sie kreisen hoch am Himmel mit eleganten Bewegungen - ein atemberaubender Anblick"
+        },
+        {
+          title: "Wunderschöne Vögel",
+          description: "Gekennzeichnet durch farbenprächtiges Gefieder, harmonischen Körperbau und lebhafte Natur"
+        }
+      ],
+      imageSection: {
+        title: "Die Schönheit des Szegediner Hochfliegers",
+        text: "Der Szegediner Hochflieger begeistert Beobachter nicht nur mit seinem schönen Aussehen, sondern auch mit seinem einzigartigen Flugstil. Ihr hohes Kreisen und ihre eleganten Bewegungen bieten wirklich ein einzigartiges Erlebnis.",
+        button: "Mehr über die Rasse erfahren"
+      },
+      ctaSection: {
+        title: "Haben Sie Fragen zur Rasse?",
+        text: "Ich beantworte gerne alle Fragen zum Szegediner Hochflieger!",
+        button: "Kontakt"
+      }
+    },
+
+    // About Page - The Breeder
+    about: {
+      title: "Über den Züchter",
+      subtitle: "Leidenschaft für den Szegediner Hochflieger",
+      story: {
+        title: "Kurz gesagt",
+        paragraphs: [
+          "Seit meiner Kindheit fühle ich mich zu Tauben hingezogen. Der Szegediner Hochflieger hat mich vom ersten Moment an fasziniert - die Eleganz ihres Fluges, ihr farbenfrohes Gefieder und ihr einzigartiger Charakter haben mich sofort gefesselt.",
+          "Ich arbeite seit mehr als fünf Jahrzehnten mit dieser wundervollen Rasse. Ich glaube, dass der Szegediner Hochflieger Teil des ungarischen Kulturerbes ist, und es ist wichtig, ihn an die nächsten Generationen weiterzugeben."
+        ]
+      },
+      philosophy: {
+        title: "Was zählt",
+        points: [
+          "Gesundheit und Wohlergehen der Vögel stehen an erster Stelle",
+          "Respekt vor dem Rassestandard",
+          "Erhaltung traditioneller Werte",
+          "Wissensaustausch mit anderen Züchtern"
+        ]
+      },
+      achievements: {
+        title: "Erfahrung",
+        list: [
+          "Mehr als 50 Jahre Zucht der Rasse",
+          "Aktives Mitglied des Ungarischen Nationalen Verbandes der Tauben- und Kleintiergzüchter",
+          "Regelmäßige Teilnahme an Ausstellungen und Treffen",
+          "Verbindungen zu Züchtern im In- und Ausland"
+        ]
+      },
+      ctaSection: {
+        title: "Erfahren Sie mehr über die Rasse",
+        text: "Entdecken Sie die Einzigartigkeit des Szegediner Hochfliegers!",
+        button: "Über die Rasse"
+      }
+    },
+
+    // Breed Page
+    breed: {
+      title: "Der Szegediner Hochflieger",
+      subtitle: "Eine Einzigartige Ungarische Rasse",
+      intro: "Der Szegediner Hochflieger ist eine der schönsten und interessantesten Ziertaubenrassen Ungarns. Sein einzigartiger Flugstil und sein atemberaubendes Aussehen haben diese Rasse weltweit bekannt gemacht.",
+
+      history: {
+        title: "Geschichte und Herkunft",
+        text: "Die Rasse Szegediner Hochflieger hat eine Geschichte, die mehrere Jahrhunderte umfasst. Sie entwickelte sich in der Gegend um Szeged, wo die Taubenzucht tiefe Traditionen hat. Züchter der Rasse arbeiteten über Generationen hinweg daran, den einzigartigen Flugstil zu entwickeln, der sie heute auszeichnet: Kreisflug in großer Höhe, der ein atemberaubendes Schauspiel bietet."
+      },
+
+      characteristics: {
+        title: "Merkmale",
+        appearance: {
+          title: "Aussehen",
+          points: [
+            "Mittlere Größe, harmonischer Körperbau",
+            "Stolze, aufrechte Haltung",
+            "Volle Brust, sich verjüngende Rückenlinie",
+            "Kurzes, glattes Gefieder, typische Varianten: einfarbig, mit Kragen und Herzzeichnung",
+            "Farbvariationen: rot, gelb, blau, schwarz, weiß, fahl",
+            "Lebhafte, ausdrucksvolle Augen",
+            "Mittelanger, kräftiger Schnabel"
+          ]
+        },
+        flying: {
+          title: "Flugstil",
+          text: "Der größte Wert des Szegediner Hochfliegers ist sein Flug. Sie steigen in große Höhen auf, kreisen dann dort und verweilen fast schwebend über lange Zeiträume. Ihr Flug ist harmonisch und elegant - als würden sie am Himmel tanzen. Dieser einzigartige Flugstil ist das Ergebnis jahrhundertelanger Zuchtarbeit."
+        },
+        temperament: {
+          title: "Wesen und Verhalten",
+          text: "Intelligente, lebhafte Vögel, die leicht gezähmt werden können. Sie tolerieren menschliche Gesellschaft gut und sind leicht zu handhaben. Ausgezeichnete Eltern, die ihre Jungen sorgfältig aufziehen. Sie sind widerstandsfähig und anpassungsfähig, benötigen aber angemessene Pflege."
+        }
+      },
+
+      breeding: {
+        title: "Zuchterwägungen",
+        points: [
+          "Gründliche Auswahl nach Standard vor der Paarung",
+          "Prüfung und Erhaltung der Flugfähigkeit",
+          "Erhaltung der genetischen Vielfalt",
+          "Erhaltung eines gesunden, starken Bestands",
+          "Kontinuierliche Ausbildung und Flug der Jungvögel"
+        ]
+      },
+
+      standard: {
+        title: "Rassebeschreibung",
+        text: "Die Rasse Szegediner Hochflieger hat eine präzise Rassebeschreibung, die die Merkmale eines idealen Exemplars definiert. Die Beschreibung umfasst Körperstruktur, Gefiederfarbe und -qualität sowie Flugfähigkeiten. Auf Ausstellungen werden die Vögel streng nach dieser Beschreibung beurteilt."
+      },
+      ctaSection: {
+        title: "Sehen Sie meine Fotos!",
+        text: "Wunderschöne Fotos von Szegediner Hochflieger Tauben",
+        button: "Galerie ansehen"
+      }
+    },
+
+    // Gallery Page
+    gallery: {
+      title: "Galerie",
+      subtitle: "Unsere Vögel",
+      filter: {
+        all: "Alle",
+        breeding: "Zuchtstamm",
+        young: "Jungvögel",
+        flying: "Flug",
+        events: "Ausstellungen"
+      },
+      placeholder: "Bild wird geladen..."
+    },
+
+    // Contact Page
+    contact: {
+      title: "Kontakt",
+      subtitle: "Nehmen Sie Kontakt mit mir auf!",
+      intro: "Wenn Sie sich für die Rasse Szegediner Hochflieger interessieren oder Fragen zur Zucht haben, kontaktieren Sie mich gerne!",
+
+      info: {
+        title: "Kontaktinformationen",
+        name: "Name:",
+        nameValue: "András Varga",
+        phone: "Telefon:",
+        phoneValue: "+36 30 330 4567",
+        phoneRaw: "+36303304567",
+        email: "E-Mail:",
+        emailValue: "varga.major@gmail.com",
+        location: "Standort:",
+        locationValue: "Szeged, Ungarn",
+        revealButton: "Klicken zum Anzeigen"
+      },
+
+      form: {
+        title: "Nachricht senden",
+        name: "Name",
+        namePlaceholder: "Ihr Name",
+        email: "E-Mail",
+        emailPlaceholder: "beispiel@email.com",
+        subject: "Betreff",
+        subjectPlaceholder: "Wie kann ich helfen?",
+        message: "Nachricht",
+        messagePlaceholder: "Schreiben Sie hier Ihre Nachricht...",
+        submit: "Nachricht senden"
+      },
+
+      social: {
+        title: "Soziale Medien",
+        description: "Sie finden mich auf Facebook, Instagram und Viber!"
+      }
+    },
+
+    // Footer
+    footer: {
+      about: {
+        title: "Szegediner Hochflieger Zucht",
+        text: "Zucht von Szegediner Hochflieger Tauben mit mehr als 50 Jahren Erfahrung."
+      },
+      links: {
+        title: "Links",
+        privacy: "Datenschutz",
+        terms: "Nutzungsbedingungen"
+      },
+      contact: {
+        title: "Kontakt",
+        email: "E-Mail:",
+        emailValue: "varga.major@gmail.com"
+      },
+      copyright: "Alle Rechte vorbehalten.",
+      copyrightName: "András Varga",
+      madeWith: "Erstellt von:"
+    }
+  },
+
   sr: {
     // Navigation
     nav: {
