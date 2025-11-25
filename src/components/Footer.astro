@@ -4,6 +4,7 @@ import { content } from '../content.js';
 const lang = 'hu';
 const footer = content[lang].footer;
 const nav = content[lang].nav;
+const contactInfo = content[lang].contact.info;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -101,7 +102,14 @@ const currentYear = new Date().getFullYear();
         </div>
 
         <p class="text-sm text-gray-400 mt-4">
-          Email: <a href="mailto:varga.major@gmail.com" class="hover:text-primary-400 transition-colors">varga.major@gmail.com</a>
+          {footer.contact.email}
+          <button
+            id="footer-reveal-email"
+            class="text-primary-400 hover:text-primary-300 transition-colors cursor-pointer underline"
+            data-email={footer.contact.emailValue}
+          >
+            {contactInfo.revealButton}
+          </button>
         </p>
       </div>
     </div>
@@ -109,7 +117,7 @@ const currentYear = new Date().getFullYear();
     <!-- Bottom Bar -->
     <div class="border-t border-primary-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
       <p class="text-sm text-gray-400">
-        © {currentYear} Varga András {footer.copyright}
+        © {currentYear} {footer.copyrightName} {footer.copyright}
       </p>
 
       <p class="text-sm text-gray-400 mt-4 md:mt-0">
@@ -118,3 +126,22 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script>
+  // Footer email reveal functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const emailBtn = document.getElementById('footer-reveal-email');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', () => {
+        const email = emailBtn.dataset.email || '';
+        if (email) {
+          const link = document.createElement('a');
+          link.href = `mailto:${email}`;
+          link.className = 'text-primary-400 hover:text-primary-300 transition-colors';
+          link.textContent = email;
+          emailBtn.replaceWith(link);
+        }
+      });
+    }
+  });
+</script>

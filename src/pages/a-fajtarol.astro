@@ -123,16 +123,16 @@ const breedContent = content[lang].breed;
   <section class="py-16 bg-primary-600 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-bold mb-4">
-        Tekintse meg fényképeimet!
+        {breedContent.ctaSection.title}
       </h2>
       <p class="text-xl text-white/90 mb-8">
-        Gyönyörű fotók a Szegedi Magasszálló Keringő galambokról
+        {breedContent.ctaSection.text}
       </p>
       <a
         href="/galeria"
         class="inline-block px-8 py-3 bg-white text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
       >
-        Galéria Megtekintése
+        {breedContent.ctaSection.button}
       </a>
     </div>
   </section>

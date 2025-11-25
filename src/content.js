@@ -130,6 +130,11 @@ export const content = {
       standard: {
         title: "Fajta Szabvány",
         text: "A Szegedi Magasszálló Keringő fajta pontos szabvánnyal rendelkezik, amely meghatározza az ideális példány tulajdonságait. A szabvány tartalmazza a test felépítését, tollazat színét és minőségét, valamint a repülési képességeket. A kiállításokon szigorúan ezen szabvány szerint bírálják el a madarakat."
+      },
+      ctaSection: {
+        title: "Tekintse meg fényképeimet!",
+        text: "Gyönyörű fotók a Szegedi Magasszálló Keringő galambokról",
+        button: "Galéria Megtekintése"
       }
     },
 
@@ -156,10 +161,15 @@ export const content = {
       info: {
         title: "Elérhetőségek",
         name: "Név:",
+        nameValue: "Varga András",
         phone: "Telefon:",
+        phoneValue: "+36 30 330 4567",
+        phoneRaw: "+36303304567",
         email: "E-mail:",
+        emailValue: "varga.major@gmail.com",
         location: "Helyszín:",
-        locationValue: "Magyarország"
+        locationValue: "Szeged, Hungary",
+        revealButton: "Kattintson a megjelenítéshez"
       },
 
       form: {
@@ -193,9 +203,12 @@ export const content = {
         terms: "Felhasználási feltételek"
       },
       contact: {
-        title: "Kapcsolat"
+        title: "Kapcsolat",
+        email: "Email:",
+        emailValue: "varga.major@gmail.com"
       },
       copyright: "Minden jog fenntartva.",
+      copyrightName: "Varga András",
       madeWith: "Készítette:"
     }
   }

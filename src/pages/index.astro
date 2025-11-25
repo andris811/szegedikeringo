@@ -70,16 +70,16 @@ const homeContent = content[lang].home;
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 class="text-3xl font-bold text-gray-900 mb-4">
-            A Szegedi Magasszálló Keringő Szépsége
+            {homeContent.imageSection.title}
           </h2>
           <p class="text-gray-600 leading-relaxed mb-4">
-            A Szegedi Magasszálló Keringő nemcsak gyönyörű megjelenésével, hanem különleges repülési stílusával is lenyűgözi a szemlélőket. Magas körözésük, elegáns mozgásuk valóban egyedülálló élményt nyújt.
+            {homeContent.imageSection.text}
           </p>
           <a
             href="/a-fajtarol"
             class="inline-block px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
           >
-            {homeContent.cta}
+            {homeContent.imageSection.button}
           </a>
         </div>
         <div class="rounded-lg overflow-hidden shadow-lg">
@@ -105,16 +105,16 @@ const homeContent = content[lang].home;
   <section class="py-16 bg-primary-600 text-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        Kérdése van a fajtával kapcsolatban?
+        {homeContent.ctaSection.title}
       </h2>
       <p class="text-xl text-white/90 mb-8">
-        Szívesen válaszolok bármilyen kérdésre a Szegedi Magasszálló Keringőről!
+        {homeContent.ctaSection.text}
       </p>
       <a
         href="/kapcsolat"
         class="inline-block px-8 py-3 bg-white text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
       >
-        Kapcsolat
+        {homeContent.ctaSection.button}
       </a>
     </div>
   </section>

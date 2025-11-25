@@ -50,7 +50,7 @@ const contactContent = content[lang].contact;
                 </div>
                 <div>
                   <p class="font-semibold text-gray-900 mb-1">{contactContent.info.name}</p>
-                  <p class="text-gray-600">Varga András</p>
+                  <p class="text-gray-600">{contactContent.info.nameValue}</p>
                 </div>
               </div>
 
@@ -67,9 +67,10 @@ const contactContent = content[lang].contact;
                   <button
                     id="reveal-phone"
                     class="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2 group"
-                    data-phone="+36303304567"
+                    data-phone={contactContent.info.phoneRaw}
+                    data-phone-display={contactContent.info.phoneValue}
                   >
-                    <span>Kattintson a megjelenítéshez</span>
+                    <span>{contactContent.info.revealButton}</span>
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -90,9 +91,9 @@ const contactContent = content[lang].contact;
                   <button
                     id="reveal-email"
                     class="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2 group"
-                    data-email="varga.major@gmail.com"
+                    data-email={contactContent.info.emailValue}
                   >
-                    <span>Kattintson a megjelenítéshez</span>
+                    <span>{contactContent.info.revealButton}</span>
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -111,7 +112,7 @@ const contactContent = content[lang].contact;
                 </div>
                 <div>
                   <p class="font-semibold text-gray-900 mb-1">{contactContent.info.location}</p>
-                  <p class="text-gray-600">Szeged, Hungary</p>
+                  <p class="text-gray-600">{contactContent.info.locationValue}</p>
                 </div>
               </div>
             </div>
@@ -235,11 +236,12 @@ const contactContent = content[lang].contact;
     if (phoneBtn) {
       phoneBtn.addEventListener('click', () => {
         const phone = phoneBtn.dataset.phone || '';
+        const phoneDisplay = phoneBtn.dataset.phoneDisplay || phone;
         if (phone) {
           const link = document.createElement('a');
           link.href = `tel:${phone}`;
           link.className = 'text-gray-600 hover:text-primary-600 transition-colors';
-          link.textContent = '+36 30 330 4567';
+          link.textContent = phoneDisplay;
           phoneBtn.replaceWith(link);
         }
       });
