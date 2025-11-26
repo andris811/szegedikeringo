@@ -10,7 +10,9 @@ interface Props {
 const { pathname } = Astro.url;
 const isEnglish = pathname.startsWith('/en');
 const isSerbian = pathname.startsWith('/sr');
-const htmlLang = isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu');
+const isGerman = pathname.startsWith('/de');
+const isRomanian = pathname.startsWith('/ro');
+const htmlLang = isRomanian ? 'ro' : (isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu')));
 
 const { title, description = "Szegedi Magasszálló Keringő galamb tenyészet - Minőségi díszgalambok több mint 20 éves tapasztalattal" } = Astro.props;
 ---
@@ -21,7 +23,7 @@ const { title, description = "Szegedi Magasszálló Keringő galamb tenyészet -
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Fonts -->
