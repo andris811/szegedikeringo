@@ -8,11 +8,18 @@ const { pathname } = Astro.url;
 const isEnglish = pathname.startsWith('/en');
 const isSerbian = pathname.startsWith('/sr');
 const isGerman = pathname.startsWith('/de');
-const lang = isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu'));
+const isRomanian = pathname.startsWith('/ro');
+const lang = isRomanian ? 'ro' : (isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu')));
 const nav = content[lang].nav;
 
 // Define navigation links based on language
-const navLinks = isGerman ? [
+const navLinks = isRomanian ? [
+  { href: '/ro/', label: nav.home },
+  { href: '/ro/despre-crescator', label: nav.about },
+  { href: '/ro/despre-rasa', label: nav.breed },
+  { href: '/ro/galerie', label: nav.gallery },
+  { href: '/ro/contact', label: nav.contact },
+] : isGerman ? [
   { href: '/de/', label: nav.home },
   { href: '/de/uber-den-zuchter', label: nav.about },
   { href: '/de/uber-die-rasse', label: nav.breed },
@@ -41,54 +48,64 @@ const navLinks = isGerman ? [
 // Language switcher URLs - map current page to all languages
 const getLanguageUrls = () => {
   // Hungarian URLs
-  if (!isEnglish && !isSerbian && !isGerman) {
-    if (pathname === '/') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
-    if (pathname.includes('/a-tenyesztorol')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter' };
-    if (pathname.includes('/a-fajtarol')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse' };
-    if (pathname.includes('/galeria')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie' };
-    if (pathname.includes('/kapcsolat')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt' };
-    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
+  if (!isEnglish && !isSerbian && !isGerman && !isRomanian) {
+    if (pathname === '/') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
+    if (pathname.includes('/a-tenyesztorol')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter', ro: '/ro/despre-crescator' };
+    if (pathname.includes('/a-fajtarol')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse', ro: '/ro/despre-rasa' };
+    if (pathname.includes('/galeria')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie', ro: '/ro/galerie' };
+    if (pathname.includes('/kapcsolat')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt', ro: '/ro/contact' };
+    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
   }
 
   // English URLs
   if (isEnglish) {
-    if (pathname === '/en/' || pathname === '/en') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
-    if (pathname.includes('/about-the-breeder')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter' };
-    if (pathname.includes('/about-the-breed')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse' };
-    if (pathname.includes('/gallery')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie' };
-    if (pathname.includes('/contact')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt' };
-    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
+    if (pathname === '/en/' || pathname === '/en') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
+    if (pathname.includes('/about-the-breeder')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter', ro: '/ro/despre-crescator' };
+    if (pathname.includes('/about-the-breed')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse', ro: '/ro/despre-rasa' };
+    if (pathname.includes('/gallery')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie', ro: '/ro/galerie' };
+    if (pathname.includes('/contact')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt', ro: '/ro/contact' };
+    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
   }
 
   // Serbian URLs
   if (isSerbian) {
-    if (pathname === '/sr/' || pathname === '/sr') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
-    if (pathname.includes('/o-uzgajivaciju')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter' };
-    if (pathname.includes('/o-rasi')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse' };
-    if (pathname.includes('/galerija')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie' };
-    if (pathname.includes('/kontakt')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt' };
-    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
+    if (pathname === '/sr/' || pathname === '/sr') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
+    if (pathname.includes('/o-uzgajivaciju')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter', ro: '/ro/despre-crescator' };
+    if (pathname.includes('/o-rasi')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse', ro: '/ro/despre-rasa' };
+    if (pathname.includes('/galerija')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie', ro: '/ro/galerie' };
+    if (pathname.includes('/kontakt')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt', ro: '/ro/contact' };
+    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
   }
 
   // German URLs
   if (isGerman) {
-    if (pathname === '/de/' || pathname === '/de') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
-    if (pathname.includes('/uber-den-zuchter')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter' };
-    if (pathname.includes('/uber-die-rasse')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse' };
-    if (pathname.includes('/galerie')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie' };
-    if (pathname.includes('/kontakt')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt' };
-    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
+    if (pathname === '/de/' || pathname === '/de') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
+    if (pathname.includes('/uber-den-zuchter')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter', ro: '/ro/despre-crescator' };
+    if (pathname.includes('/uber-die-rasse')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse', ro: '/ro/despre-rasa' };
+    if (pathname.includes('/galerie')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie', ro: '/ro/galerie' };
+    if (pathname.includes('/kontakt')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt', ro: '/ro/contact' };
+    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
   }
 
-  return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/' };
+  // Romanian URLs
+  if (isRomanian) {
+    if (pathname === '/ro/' || pathname === '/ro') return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
+    if (pathname.includes('/despre-crescator')) return { hu: '/a-tenyesztorol', en: '/en/about-the-breeder', sr: '/sr/o-uzgajivaciju', de: '/de/uber-den-zuchter', ro: '/ro/despre-crescator' };
+    if (pathname.includes('/despre-rasa')) return { hu: '/a-fajtarol', en: '/en/about-the-breed', sr: '/sr/o-rasi', de: '/de/uber-die-rasse', ro: '/ro/despre-rasa' };
+    if (pathname.includes('/galerie')) return { hu: '/galeria', en: '/en/gallery', sr: '/sr/galerija', de: '/de/galerie', ro: '/ro/galerie' };
+    if (pathname.includes('/contact')) return { hu: '/kapcsolat', en: '/en/contact', sr: '/sr/kontakt', de: '/de/kontakt', ro: '/ro/contact' };
+    return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
+  }
+
+  return { hu: '/', en: '/en/', sr: '/sr/', de: '/de/', ro: '/ro/' };
 };
 
 const languageUrls = getLanguageUrls();
 
 const isActive = (href: string) => {
   // Exact match for home pages
-  if (href === '/' || href === '/en/' || href === '/sr/' || href === '/de/') {
-    return pathname === '/' || pathname === '/en/' || pathname === '/en' || pathname === '/sr/' || pathname === '/sr' || pathname === '/de/' || pathname === '/de';
+  if (href === '/' || href === '/en/' || href === '/sr/' || href === '/de/' || href === '/ro/') {
+    return pathname === '/' || pathname === '/en/' || pathname === '/en' || pathname === '/sr/' || pathname === '/sr' || pathname === '/de/' || pathname === '/de' || pathname === '/ro/' || pathname === '/ro';
   }
   // For other pages, match exactly (pathname should be href or href/)
   return pathname === href || pathname === href + '/';
@@ -140,10 +157,11 @@ const isActive = (href: string) => {
             class="px-3 py-2 text-2xl rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-all flex items-center gap-1"
             aria-label="Change language"
           >
-            {!isEnglish && !isSerbian && !isGerman && '🇭🇺'}
+            {!isEnglish && !isSerbian && !isGerman && !isRomanian && '🇭🇺'}
             {isEnglish && '🇬🇧'}
             {isSerbian && '🇷🇸'}
             {isGerman && '🇩🇪'}
+            {isRomanian && '🇷🇴'}
             <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -152,7 +170,7 @@ const isActive = (href: string) => {
             id="lang-dropdown"
             class="hidden absolute top-full right-0 mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 min-w-[150px] z-50"
           >
-            {(isEnglish || isSerbian || isGerman) && (
+            {(isEnglish || isSerbian || isGerman || isRomanian) && (
               <a
                 href={languageUrls.hu}
                 class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
@@ -186,6 +204,15 @@ const isActive = (href: string) => {
               >
                 <span class="text-2xl">🇩🇪</span>
                 <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Deutsch</span>
+              </a>
+            )}
+            {(!isRomanian) && (
+              <a
+                href={languageUrls.ro}
+                class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <span class="text-2xl">🇷🇴</span>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Română</span>
               </a>
             )}
           </div>
@@ -275,16 +302,18 @@ const isActive = (href: string) => {
         >
           <span class="flex items-center gap-2">
             <span class="text-2xl">
-              {!isEnglish && !isSerbian && !isGerman && '🇭🇺'}
+              {!isEnglish && !isSerbian && !isGerman && !isRomanian && '🇭🇺'}
               {isEnglish && '🇬🇧'}
               {isSerbian && '🇷🇸'}
               {isGerman && '🇩🇪'}
+              {isRomanian && '🇷🇴'}
             </span>
             <span class="text-sm font-medium text-gray-700 dark:text-gray-200">
-              {!isEnglish && !isSerbian && !isGerman && 'Magyar'}
+              {!isEnglish && !isSerbian && !isGerman && !isRomanian && 'Magyar'}
               {isEnglish && 'English'}
               {isSerbian && 'Srpski'}
               {isGerman && 'Deutsch'}
+              {isRomanian && 'Română'}
             </span>
           </span>
           <svg class="w-4 h-4 text-gray-600 dark:text-gray-300 mobile-lang-chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -292,7 +321,7 @@ const isActive = (href: string) => {
           </svg>
         </button>
         <div id="mobile-lang-dropdown" class="hidden mt-2 space-y-1">
-          {(isEnglish || isSerbian || isGerman) && (
+          {(isEnglish || isSerbian || isGerman || isRomanian) && (
             <a
               href={languageUrls.hu}
               class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
@@ -326,6 +355,15 @@ const isActive = (href: string) => {
             >
               <span class="text-2xl">🇩🇪</span>
               <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Deutsch</span>
+            </a>
+          )}
+          {(!isRomanian) && (
+            <a
+              href={languageUrls.ro}
+              class="flex items-center gap-3 px-4 py-2 rounded bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+            >
+              <span class="text-2xl">🇷🇴</span>
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Română</span>
             </a>
           )}
         </div>

@@ -1,5 +1,219 @@
 // Content for the website
 export const content = {
+  ro: {
+    // Navigation
+    nav: {
+      home: "Acasă",
+      about: "Despre Crescător",
+      breed: "Despre Rasă",
+      gallery: "Galerie",
+      contact: "Contact"
+    },
+
+    // Home Page
+    home: {
+      hero: {
+        title: "Porumbei Înaltă Zbor Szegedin",
+        subtitle: "Tradiție, Frumusețe și Libertate"
+      },
+      intro: {
+        title: "Bine ați venit pe pagina mea!",
+        text: "De mai bine de cinci decenii cresc rasa de porumbei Înaltă Zbor Szegedin. Această frumoasă rasă ungurească nu a devenit doar dragostea vieții mele, ci a devenit parte din viața mea. Fiecare pasăre este unică și sunt încântat să contribui la conservarea și promovarea acestei rase speciale."
+      },
+      features: [
+        {
+          title: "Tradiție Ungurească",
+          description: "Porumbelul Înaltă Zbor Szegedin face parte din patrimoniul cultural al Ungariei, purtând tradiții vechi de secole"
+        },
+        {
+          title: "Stil Unic de Zbor",
+          description: "Zboară în cerc la înălțime mare cu mișcări elegante - o priveliște uimitoare"
+        },
+        {
+          title: "Păsări Frumoase",
+          description: "Caracterizate prin penaj colorat, structură corporală armonioasă și natură vie"
+        }
+      ],
+      imageSection: {
+        title: "Frumusețea Porumbelului Înaltă Zbor Szegedin",
+        text: "Porumbelul Înaltă Zbor Szegedin captivează observatorii nu doar prin aspectul său frumos, ci și prin stilul său unic de zbor. Zburarea lor circulară la înălțime mare și mișcările elegante oferă cu adevărat o experiență unică.",
+        button: "Aflați Mai Multe Despre Rasă"
+      },
+      ctaSection: {
+        title: "Aveți întrebări despre rasă?",
+        text: "Cu plăcere voi răspunde la orice întrebări despre Porumbelul Înaltă Zbor Szegedin!",
+        button: "Contact"
+      }
+    },
+
+    // About Page - The Breeder
+    about: {
+      title: "Despre Crescător",
+      subtitle: "Pasiune pentru Porumbelul Înaltă Zbor Szegedin",
+      story: {
+        title: "Pe Scurt",
+        paragraphs: [
+          "Am fost atras de porumbei încă din copilărie. Porumbelul Înaltă Zbor Szegedin m-a captivat din primul moment - eleganța zborului lor, penajul colorat și caracterul lor unic mi-au atras imediat atenția.",
+          "Lucrez cu această rasă minunată de mai bine de cinci decenii. Cred că Porumbelul Înaltă Zbor Szegedin face parte din patrimoniul cultural al Ungariei și este important să-l transmitem generațiilor viitoare."
+        ]
+      },
+      philosophy: {
+        title: "Ce Contează",
+        points: [
+          "Sănătatea și bunăstarea păsărilor vin pe primul loc",
+          "Respect pentru standardul rasei",
+          "Conservarea valorilor tradiționale",
+          "Schimbul de cunoștințe cu alți crescători"
+        ]
+      },
+      achievements: {
+        title: "Experiență",
+        list: [
+          "Mai mult de 50 de ani de creștere a rasei",
+          "Membru activ al Asociației Naționale a Crescătorilor de Porumbei și Animale Mici din Ungaria",
+          "Participare regulată la expoziții și întâlniri",
+          "Conexiuni cu crescători din țară și străinătate"
+        ]
+      },
+      ctaSection: {
+        title: "Aflați mai multe despre rasă",
+        text: "Descoperiți unicitatea Porumbelului Înaltă Zbor Szegedin!",
+        button: "Despre Rasă"
+      }
+    },
+
+    // Breed Page
+    breed: {
+      title: "Porumbelul Înaltă Zbor Szegedin",
+      subtitle: "O Rasă Ungurească Unică",
+      intro: "Porumbelul Înaltă Zbor Szegedin este una dintre cele mai frumoase și interesante rase de porumbei ornamentali din Ungaria. Stilul său unic de zbor și aspectul său uimitor au făcut această rasă cunoscută în întreaga lume.",
+
+      history: {
+        title: "Istorie și Origine",
+        text: "Rasa Porumbelului Înaltă Zbor Szegedin are o istorie care se întinde pe mai multe secole. S-a dezvoltat în zona Szegedin, unde creșterea porumbeilor are tradiții adânci. Crescătorii rasei au lucrat generații pentru a dezvolta stilul unic de zbor care îi caracterizează astăzi: zbor circular la înălțime mare care oferă un spectacol uimitor."
+      },
+
+      characteristics: {
+        title: "Caracteristici",
+        appearance: {
+          title: "Aspect",
+          points: [
+            "Mărime medie, structură corporală armonioasă",
+            "Postură mândră, dreaptă",
+            "Piept plin, linie dorsală îngustă",
+            "Penaj scurt, neted, variante tipice: unicolor, cu guler și cu inimă pe spate",
+            "Variații de culoare: roșu, galben, albastru, negru, alb, bej",
+            "Ochi vii, expresivi",
+            "Cioc de lungime medie, puternic"
+          ]
+        },
+        flying: {
+          title: "Stil de Zbor",
+          text: "Cea mai mare valoare a Porumbelului Înaltă Zbor Szegedin este zborul său. Se ridică la înălțimi mari, apoi zboară circular acolo, aproape plutind pentru perioade lungi de timp. Zborul lor este armonios și elegant - ca și cum ar dansa pe cer. Acest stil unic de zbor este rezultatul muncii de creștere de secole."
+        },
+        temperament: {
+          title: "Natură și Comportament",
+          text: "Păsări inteligente, vii, care sunt ușor de îmblânzit. Tolerează bine compania umană și sunt ușor de gestionat. Părinți excelenți care își cresc cu grijă puii. Sunt rezistenți și adaptabili, dar necesită îngrijire adecvată."
+        }
+      },
+
+      breeding: {
+        title: "Considerații de Creștere",
+        points: [
+          "Selecție amănunțită conform standardului înainte de împerechere",
+          "Testarea și menținerea capacității de zbor",
+          "Menținerea diversității genetice",
+          "Menținerea unui stoc sănătos și puternic",
+          "Antrenament continuu și zbor al păsărilor tinere"
+        ]
+      },
+
+      standard: {
+        title: "Descrierea Rasei",
+        text: "Rasa Porumbelului Înaltă Zbor Szegedin are o descriere precisă a rasei care definește caracteristicile unui exemplar ideal. Descrierea include structura corporală, culoarea și calitatea penajului, precum și abilitățile de zbor. La expoziții, păsările sunt judecate strict conform acestei descrieri."
+      },
+      ctaSection: {
+        title: "Vedeți fotografiile mele!",
+        text: "Fotografii frumoase ale porumbeilor Înaltă Zbor Szegedin",
+        button: "Vezi Galeria"
+      }
+    },
+
+    // Gallery Page
+    gallery: {
+      title: "Galerie",
+      subtitle: "Păsările Noastre",
+      filter: {
+        all: "Toate",
+        breeding: "Stoc de Reproducție",
+        young: "Păsări Tinere",
+        flying: "Zbor",
+        events: "Expoziții"
+      },
+      placeholder: "Se încarcă imaginea..."
+    },
+
+    // Contact Page
+    contact: {
+      title: "Contact",
+      subtitle: "Luați legătura cu mine!",
+      intro: "Dacă sunteți interesat de rasa Porumbelului Înaltă Zbor Szegedin sau aveți întrebări despre creștere, nu ezitați să mă contactați!",
+
+      info: {
+        title: "Informații de Contact",
+        name: "Nume:",
+        nameValue: "András Varga",
+        phone: "Telefon:",
+        phoneValue: "+36 30 330 4567",
+        phoneRaw: "+36303304567",
+        email: "E-mail:",
+        emailValue: "varga.major@gmail.com",
+        location: "Locație:",
+        locationValue: "Szeged, Ungaria",
+        revealButton: "Click pentru a afișa"
+      },
+
+      form: {
+        title: "Trimite Mesaj",
+        name: "Nume",
+        namePlaceholder: "Numele dumneavoastră",
+        email: "E-mail",
+        emailPlaceholder: "exemplu@email.com",
+        subject: "Subiect",
+        subjectPlaceholder: "Cum vă pot ajuta?",
+        message: "Mesaj",
+        messagePlaceholder: "Scrieți mesajul aici...",
+        submit: "Trimite Mesaj"
+      },
+
+      social: {
+        title: "Rețele Sociale",
+        description: "Mă puteți găsi pe Facebook, Instagram și Viber!"
+      }
+    },
+
+    // Footer
+    footer: {
+      about: {
+        title: "Creșterea Porumbeilor Înaltă Zbor Szegedin",
+        text: "Creșterea porumbeilor Înaltă Zbor Szegedin cu mai mult de 50 de ani de experiență."
+      },
+      links: {
+        title: "Link-uri",
+        privacy: "Confidențialitate",
+        terms: "Termeni de Utilizare"
+      },
+      contact: {
+        title: "Contact",
+        email: "Email:",
+        emailValue: "varga.major@gmail.com"
+      },
+      copyright: "Toate drepturile rezervate.",
+      copyrightName: "András Varga",
+      madeWith: "Creat de:"
+    }
+  },
+
   de: {
     // Navigation
     nav: {

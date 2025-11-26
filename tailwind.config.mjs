@@ -17,6 +17,18 @@ export default {
           800: "#4e3524", // very dark brown
           900: "#3d2a1e", // darkest brown
         },
+        gray: {
+          50: "#fafaf9",
+          100: "#f5f5f4",
+          200: "#e7e5e4",
+          300: "#d6d3d1",
+          400: "#a8a29e",
+          500: "#78716c",
+          600: "#57534e",
+          700: "#3d3935", // warm dark brown-gray
+          800: "#2b2724", // warmer very dark brown-gray
+          900: "#1c1917", // warmest darkest brown-gray (almost black with brown tint)
+        },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

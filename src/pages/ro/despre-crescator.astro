@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import { content } from '../../content.js';
+
+const lang = 'ro';
+const aboutContent = content[lang].about;
+---
+
+<Layout
+  title="Despre Crescător | Creșterea Porumbeilor Înaltă Zbor Szegedin"
+  description="Cunoașteți crescătorul care crește cu pasiune porumbei Înaltă Zbor Szegedin de mai bine de 20 de ani."
+>
+  <!-- Hero Section -->
+  <Hero
+    title={aboutContent.title}
+    subtitle={aboutContent.subtitle}
+    image="/images/hero/about.jpg"
+  />
+
+  <!-- Story Section with Photo -->
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-12 text-center">
+        {aboutContent.story.title}
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Photo -->
+        <div class="order-2 md:order-1">
+          <div class="rounded-2xl overflow-hidden shadow-xl">
+            <!-- Placeholder for breeder photo -->
+            <div class="aspect-[3/4] bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center">
+              <img
+                src="/images/breeder.jpg"
+                alt="András Varga - Szegediner Hochflieger Züchter"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none';"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="order-1 md:order-2 space-y-6 text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+          {aboutContent.story.paragraphs.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">
+        {aboutContent.philosophy.title}
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {aboutContent.philosophy.points.map((point) => (
+          <div class="flex items-start space-x-4 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-primary-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-gray-700 dark:text-gray-200">{point}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">
+        {aboutContent.achievements.title}
+      </h2>
+
+      <div class="space-y-4">
+        {aboutContent.achievements.list.map((achievement) => (
+          <div class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <p class="text-gray-700 dark:text-gray-200">{achievement}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary-600 dark:bg-gray-700 text-white transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">
+        {aboutContent.ctaSection.title}
+      </h2>
+      <p class="text-xl text-white/90 mb-8">
+        {aboutContent.ctaSection.text}
+      </p>
+      <a
+        href="/ro/despre-rasa"
+        class="inline-block px-8 py-3 bg-white dark:bg-gray-800 text-primary-600 dark:text-gray-100 font-bold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+      >
+        {aboutContent.ctaSection.button}
+      </a>
+    </div>
+  </section>
+</Layout>

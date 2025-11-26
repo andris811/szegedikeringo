@@ -5,7 +5,8 @@ const { pathname } = Astro.url;
 const isEnglish = pathname.startsWith('/en');
 const isSerbian = pathname.startsWith('/sr');
 const isGerman = pathname.startsWith('/de');
-const lang = isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu'));
+const isRomanian = pathname.startsWith('/ro');
+const lang = isRomanian ? 'ro' : (isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu')));
 
 const footer = content[lang].footer;
 const nav = content[lang].nav;
@@ -13,7 +14,13 @@ const contactInfo = content[lang].contact.info;
 const currentYear = new Date().getFullYear();
 
 // Adjust navigation links based on language
-const navLinks = isGerman ? {
+const navLinks = isRomanian ? {
+  home: '/ro/',
+  about: '/ro/despre-crescator',
+  breed: '/ro/despre-rasa',
+  gallery: '/ro/galerie',
+  contact: '/ro/contact'
+} : isGerman ? {
   home: '/de/',
   about: '/de/uber-den-zuchter',
   breed: '/de/uber-die-rasse',
