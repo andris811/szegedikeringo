@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Hungarian (default) pages -->
+  <url><loc>https://szegedikeringo.vercel.app/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/a-tenyesztorol</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/a-fajtarol</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/galeria</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/kapcsolat</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- German pages -->
+  <url><loc>https://szegedikeringo.vercel.app/de/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/de/uber-den-zuchter</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/de/uber-die-rasse</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/de/galerie</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/de/kontakt</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- English pages -->
+  <url><loc>https://szegedikeringo.vercel.app/en/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/en/about-the-breeder</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/en/about-the-breed</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/en/gallery</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/en/contact</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Romanian pages -->
+  <url><loc>https://szegedikeringo.vercel.app/ro/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/ro/despre-crescator</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/ro/despre-rasa</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/ro/galerie</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/ro/contact</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Serbian pages -->
+  <url><loc>https://szegedikeringo.vercel.app/sr/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/sr/o-uzgajivaciju</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/sr/o-rasi</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/sr/galerija</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://szegedikeringo.vercel.app/sr/kontakt</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+</urlset>
