@@ -5,6 +5,8 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  image?: string;
 }
 
 const { pathname } = Astro.url;
@@ -24,18 +26,75 @@ const htmlLang = isRomanian
 
 const {
   title,
-  description = "Szegedi Magasszálló Keringő galamb tenyészet - Minőségi díszgalambok több mint 20 éves tapasztalattal",
+  description = "Szegedi Magasszálló Keringő galamb tenyészet - Minőségi díszgalambok több mint 50 éves tapasztalattal",
+  keywords = "Szegedi Magasszálló Keringő, galamb tenyészet, magyar galamb fajta, díszgalamb, galambtenyésztés, Szeged, Varga András",
+  image = "/images/hero/home.jpg",
 } = Astro.props;
+
+const siteUrl = "https://szegedikeringo.vercel.app";
+const canonicalURL = new URL(pathname, siteUrl).href;
+const imageUrl = new URL(image, siteUrl).href;
+
+// Hreflang URLs for multilingual support
+const hreflangs = {
+  hu: siteUrl + pathname.replace(/^\/(en|de|sr|ro)/, ""),
+  en: siteUrl + "/en" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
+  de: siteUrl + "/de" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
+  sr: siteUrl + "/sr" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
+  ro: siteUrl + "/ro" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
+};
 ---
 
 <!doctype html>
 <html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="KiAd4-gueNYN1jYFiSJ6WTRe5HXB5t-f99zFGTctmnY" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Varga András" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content={htmlLang} />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Hreflang Tags for Multilingual SEO -->
+    <link rel="alternate" hreflang="hu" href={hreflangs.hu} />
+    <link rel="alternate" hreflang="en" href={hreflangs.en} />
+    <link rel="alternate" hreflang="de" href={hreflangs.de} />
+    <link rel="alternate" hreflang="sr" href={hreflangs.sr} />
+    <link rel="alternate" hreflang="ro" href={hreflangs.ro} />
+    <link rel="alternate" hreflang="x-default" href={hreflangs.hu} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content={htmlLang === "hu" ? "hu_HU" : htmlLang === "en" ? "en_US" : htmlLang === "de" ? "de_DE" : htmlLang === "sr" ? "sr_RS" : "ro_RO"} />
+    <meta property="og:site_name" content="Szegedi Magasszálló Keringő" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="KiAd4-gueNYN1jYFiSJ6WTRe5HXB5t-f99zFGTctmnY" />
+
+    <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
 
     <!-- Fonts -->
@@ -68,7 +127,35 @@ const {
       gtag("config", "G-QSC59SPXFN");
     </script>
 
-    <title>{title}</title>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Szegedi Magasszálló Keringő Galamb Tenyészet",
+        "description": "Minőségi Szegedi Magasszálló Keringő galambok tenyésztése több mint 50 éves tapasztalattal",
+        "url": "https://szegedikeringo.vercel.app",
+        "logo": "https://szegedikeringo.vercel.app/logo.png",
+        "image": "https://szegedikeringo.vercel.app/images/hero/home.jpg",
+        "founder": {
+          "@type": "Person",
+          "name": "Varga András"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Szeged",
+          "addressCountry": "HU"
+        },
+        "email": "varga.major@gmail.com",
+        "sameAs": [
+          "https://www.facebook.com/share/1BgL13xgXn/",
+          "https://www.instagram.com/andras.varga.104418"
+        ],
+        "areaServed": ["Hungary", "Serbia", "Romania", "Germany"],
+        "knowsAbout": ["Szegedi Magasszálló Keringő", "Galambtenyésztés", "Magyar galambfajták"],
+        "slogan": "Hagyomány, Szépség és Szabadság"
+      }
+    </script>
   </head>
   <body
     class="font-sans antialiased bg-gray-50 dark:bg-gray-900 transition-colors"
