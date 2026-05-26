@@ -1068,5 +1068,433 @@ export const content = {
       copyrightName: "Varga András",
       madeWith: "Készítette:"
     }
+  },
+
+  pl: {
+    // Navigation
+    nav: {
+      home: "Strona Główna",
+      about: "O Hodowcy",
+      breed: "O Rasie",
+      gallery: "Galeria",
+      contact: "Kontakt"
+    },
+
+    // Home Page
+    home: {
+      hero: {
+        title: "Segedyński Wysokolotny",
+        subtitle: "Tradycja, Piękno i Wolność"
+      },
+      intro: {
+        title: "Witaj na mojej stronie!",
+        text: "Od ponad pięciu dekad zajmuję się hodowlą rasy gołębi Segedyński Wysokolotny. Ta piękna węgierska rasa stała się nie tylko miłością mojego życia, ale częścią mojego życia. Każdy ptak jest wyjątkowy i z przyjemnością przyczyniam się do zachowania i promocji tej szczególnej rasy."
+      },
+      features: [
+        {
+          title: "Węgierska Tradycja",
+          description: "Segedyński Wysokolotny jest częścią dziedzictwa kulturowego Węgier, niosąc wielowiekowe tradycje"
+        },
+        {
+          title: "Wyjątkowy Styl Lotu",
+          description: "Krążą wysoko na niebie z eleganckimi ruchami - zapierający dech w piersiach widok"
+        },
+        {
+          title: "Piękne Ptaki",
+          description: "Charakteryzują się kolorowym upierzeniem, harmonijną budową ciała i żywym usposobieniem"
+        }
+      ],
+      imageSection: {
+        title: "Piękno Segedyńskiego Wysokolotnego",
+        text: "Segedyński Wysokolotny zachwyca obserwatorów nie tylko swoim pięknym wyglądem, ale także wyjątkowym stylem lotu. Ich wysokie krążenie i eleganckie ruchy zapewniają naprawdę wyjątkowe doświadczenie.",
+        button: "Dowiedz się więcej o rasie"
+      },
+      ctaSection: {
+        title: "Masz pytania dotyczące rasy?",
+        text: "Chętnie odpowiem na wszelkie pytania dotyczące Segedyńskiego Wysokolotnego!",
+        button: "Kontakt"
+      }
+    },
+
+    // About Page - The Breeder
+    about: {
+      title: "O Hodowcy",
+      subtitle: "Pasja do Segedyńskiego Wysokolotnego",
+      story: {
+        title: "W Skrócie",
+        paragraphs: [
+          "Od dzieciństwa interesowałem się gołębiami. Segedyński Wysokolotny urzekł mnie od pierwszego momentu - elegancja ich lotu, kolorowe upierzenie i wyjątkowy charakter natychmiast przykuły moją uwagę.",
+          "Pracuję z tą wspaniałą rasą od ponad pięciu dekad. Wierzę, że Segedyński Wysokolotny jest częścią węgierskiego dziedzictwa kulturowego i ważne jest, aby przekazać go następnym pokoleniom."
+        ]
+      },
+      philosophy: {
+        title: "Co Się Liczy",
+        points: [
+          "Zdrowie i dobrostan ptaków są najważniejsze",
+          "Szacunek dla standardu rasy",
+          "Zachowanie tradycyjnych wartości",
+          "Wymiana wiedzy z innymi hodowcami"
+        ]
+      },
+      achievements: {
+        title: "Doświadczenie",
+        list: [
+          "Ponad 50 lat hodowli rasy",
+          "Aktywny członek Węgierskiego Krajowego Związku Hodowców Gołębi i Drobnych Zwierząt",
+          "Regularny udział w wystawach i spotkaniach",
+          "Kontakty z hodowcami w kraju i za granicą"
+        ]
+      },
+      ctaSection: {
+        title: "Dowiedz się więcej o rasie",
+        text: "Odkryj wyjątkowość Segedyńskiego Wysokolotnego!",
+        button: "O Rasie"
+      }
+    },
+
+    // Breed Page
+    breed: {
+      title: "Segedyński Wysokolotny",
+      subtitle: "Wyjątkowa Węgierska Rasa",
+      intro: "Segedyński Wysokolotny to jedna z najpiękniejszych i najciekawszych ras gołębi ozdobnych na Węgrzech. Jego wyjątkowy styl lotu i oszałamiający wygląd uczyniły tę rasę znaną na całym świecie.",
+
+      history: {
+        title: "Historia i Pochodzenie",
+        text: "Rasa Segedyński Wysokolotny ma historię sięgającą kilku stuleci. Wykształciła się w okolicach Szegedu, gdzie hodowla gołębi ma głębokie tradycje. Hodowcy rasy pracowali przez pokolenia, aby rozwinąć wyjątkowy styl lotu, który charakteryzuje je dzisiaj: lot okrężny na dużej wysokości, który zapewnia oszałamiający spektakl."
+      },
+
+      characteristics: {
+        title: "Cechy Charakterystyczne",
+        appearance: {
+          title: "Wygląd",
+          points: [
+            "Średni rozmiar, harmonijna budowa ciała",
+            "Dumna, wyprostowana postawa",
+            "Pełna klatka piersiowa, zwężająca się linia grzbietu",
+            "Krótkie, gładkie upierzenie, typowe odmiany: jednolite, z kołnierzem i z sercem",
+            "Odmiany kolorystyczne: czerwony, żółty, niebieski, czarny, biały, płowy",
+            "Żywe, wyraziste oczy",
+            "Średniej długości, silny dziób"
+          ]
+        },
+        flying: {
+          title: "Styl Lotu",
+          text: "Największą wartością Segedyńskiego Wysokolotnego jest jego lot. Wznoszą się na duże wysokości, a następnie krążą tam, prawie unosząc się przez długi czas. Ich lot jest harmonijny i elegancki - jakby tańczyły na niebie. Ten wyjątkowy styl lotu jest wynikiem wielowiekowej pracy hodowlanej."
+        },
+        temperament: {
+          title: "Natura i Zachowanie",
+          text: "Inteligentne, żywe ptaki, które łatwo się oswajają. Dobrze znoszą towarzystwo ludzi i są łatwe w prowadzeniu. Doskonali rodzice, którzy starannie wychowują swoje młode. Są odporne i adaptują się, ale wymagają odpowiedniej opieki."
+        }
+      },
+
+      breeding: {
+        title: "Uwagi Dotyczące Hodowli",
+        points: [
+          "Dokładna selekcja według standardu przed kojarzeniem",
+          "Testowanie i utrzymywanie zdolności lotu",
+          "Utrzymywanie różnorodności genetycznej",
+          "Utrzymywanie zdrowego, silnego stada",
+          "Ciągłe szkolenie i lot młodych ptaków"
+        ]
+      },
+
+      standard: {
+        title: "Opis Rasy",
+        text: "Rasa Segedyński Wysokolotny ma precyzyjny opis rasy, który określa cechy idealnego okazu. Opis obejmuje budowę ciała, kolor i jakość upierzenia oraz zdolności lotne. Na wystawach ptaki są oceniane ściśle według tego opisu."
+      },
+      ctaSection: {
+        title: "Zobacz moje zdjęcia!",
+        text: "Piękne zdjęcia gołębi Segedyński Wysokolotny",
+        button: "Zobacz Galerię"
+      }
+    },
+
+    // Gallery Page
+    gallery: {
+      title: "Galeria",
+      subtitle: "Nasze Ptaki",
+      filter: {
+        all: "Wszystkie",
+        breeding: "Stado Hodowlane",
+        young: "Młode Ptaki",
+        flying: "Lot",
+        events: "Wystawy"
+      },
+      placeholder: "Ładowanie obrazu..."
+    },
+
+    // Contact Page
+    contact: {
+      title: "Kontakt",
+      subtitle: "Skontaktuj się ze mną!",
+      intro: "Jeśli jesteś zainteresowany rasą Segedyński Wysokolotny lub masz pytania dotyczące hodowli, skontaktuj się ze mną!",
+
+      info: {
+        title: "Informacje Kontaktowe",
+        name: "Imię:",
+        nameValue: "András Varga",
+        phone: "Telefon:",
+        phoneValue: "+36 30 330 4567",
+        phoneRaw: "+36303304567",
+        email: "E-mail:",
+        emailValue: "varga.major@gmail.com",
+        location: "Lokalizacja:",
+        locationValue: "Segedyn, Węgry",
+        revealButton: "Kliknij, aby wyświetlić"
+      },
+
+      form: {
+        title: "Wyślij Wiadomość",
+        name: "Imię",
+        namePlaceholder: "Twoje imię",
+        email: "E-mail",
+        emailPlaceholder: "przyklad@email.com",
+        subject: "Temat",
+        subjectPlaceholder: "Jak mogę pomóc?",
+        message: "Wiadomość",
+        messagePlaceholder: "Napisz swoją wiadomość tutaj...",
+        submit: "Wyślij Wiadomość"
+      },
+
+      social: {
+        title: "Media Społecznościowe",
+        description: "Znajdziesz mnie na Facebooku, Instagramie i Viberze!"
+      }
+    },
+
+    // Footer
+    footer: {
+      about: {
+        title: "Hodowla Segedyńskiego Wysokolotnego",
+        text: "Hodowla gołębi Segedyński Wysokolotny z ponad 50-letnim doświadczeniem."
+      },
+      links: {
+        title: "Linki",
+        privacy: "Prywatność",
+        terms: "Warunki Użytkowania"
+      },
+      contact: {
+        title: "Kontakt",
+        email: "Email:",
+        emailValue: "varga.major@gmail.com"
+      },
+      copyright: "Wszelkie prawa zastrzeżone.",
+      copyrightName: "András Varga",
+      madeWith: "Stworzone przez:"
+    }
+  },
+
+  sk: {
+    // Navigation
+    nav: {
+      home: "Domov",
+      about: "O Chovateľovi",
+      breed: "O Rase",
+      gallery: "Galéria",
+      contact: "Kontakt"
+    },
+
+    // Home Page
+    home: {
+      hero: {
+        title: "Segedínsky Vysokolietavý",
+        subtitle: "Tradícia, Krása a Sloboda"
+      },
+      intro: {
+        title: "Vitajte na mojej stránke!",
+        text: "Už viac ako päť desaťročí sa venujem chovu plemena holubov Segedínsky Vysokolietavý. Toto krásne maďarské plemeno sa stalo nielen láskou môjho života, ale súčasťou môjho života. Každý vták je jedinečný a s radosťou prispievam k zachovaniu a propagácii tohto výnimočného plemena."
+      },
+      features: [
+        {
+          title: "Maďarská Tradícia",
+          description: "Segedínsky Vysokolietavý je súčasťou kultúrneho dedičstva Maďarska, nesie stáročné tradície"
+        },
+        {
+          title: "Jedinečný Štýl Letu",
+          description: "Krúžia vysoko na oblohe s elegantnými pohybmi - úchvatný pohľad"
+        },
+        {
+          title: "Krásne Vtáky",
+          description: "Charakterizuje ich farebné perie, harmonická stavba tela a živá povaha"
+        }
+      ],
+      imageSection: {
+        title: "Krása Segedínskeho Vysokolietavého",
+        text: "Segedínsky Vysokolietavý uchvacuje pozorovateľov nielen svojím krásnym vzhľadom, ale aj jedinečným štýlom letu. Ich vysoké krúženie a elegantné pohyby poskytujú skutočne jedinečný zážitok.",
+        button: "Dozvedieť sa viac o plemene"
+      },
+      ctaSection: {
+        title: "Máte otázky o plemene?",
+        text: "Rád odpoviem na všetky otázky o Segedínskom Vysokolietavom!",
+        button: "Kontakt"
+      }
+    },
+
+    // About Page - The Breeder
+    about: {
+      title: "O Chovateľovi",
+      subtitle: "Vášeň pre Segedínskeho Vysokolietavého",
+      story: {
+        title: "Stručne",
+        paragraphs: [
+          "Od detstva ma priťahovali holuby. Segedínsky Vysokolietavý ma očaril od prvého momentu - elegancia ich letu, farebné perie a jedinečný charakter okamžite upútali moju pozornosť.",
+          "S týmto nádherným plemenom pracujem viac ako päť desaťročí. Verím, že Segedínsky Vysokolietavý je súčasťou maďarského kultúrneho dedičstva a je dôležité odovzdať ho ďalším generáciám."
+        ]
+      },
+      philosophy: {
+        title: "Čo Je Dôležité",
+        points: [
+          "Zdravie a blaho vtákov sú na prvom mieste",
+          "Rešpekt k štandardu plemena",
+          "Zachovanie tradičných hodnôt",
+          "Zdieľanie vedomostí s inými chovateľmi"
+        ]
+      },
+      achievements: {
+        title: "Skúsenosti",
+        list: [
+          "Viac ako 50 rokov chovu plemena",
+          "Aktívny člen Maďarského národného združenia chovateľov holubov a drobných zvierat",
+          "Pravidelná účasť na výstavách a stretnutiach",
+          "Kontakty s chovateľmi doma aj v zahraničí"
+        ]
+      },
+      ctaSection: {
+        title: "Dozvedieť sa viac o plemene",
+        text: "Objavte jedinečnosť Segedínskeho Vysokolietavého!",
+        button: "O Rase"
+      }
+    },
+
+    // Breed Page
+    breed: {
+      title: "Segedínsky Vysokolietavý",
+      subtitle: "Jedinečné Maďarské Plemeno",
+      intro: "Segedínsky Vysokolietavý je jedným z najkrajších a najzaujímavejších plemien okrasných holubov v Maďarsku. Jeho jedinečný štýl letu a ohromujúci vzhľad urobili toto plemeno známym po celom svete.",
+
+      history: {
+        title: "História a Pôvod",
+        text: "Plemeno Segedínsky Vysokolietavý má históriu siahajúcu niekoľko storočí. Vyvinulo sa v oblasti Segedínu, kde má chov holubov hlboké tradície. Chovatelia plemena pracovali po generácie na vývoji jedinečného štýlu letu, ktorý ich charakterizuje dnes: let vo veľkej výške, ktorý poskytuje ohromujúcu podívanú."
+      },
+
+      characteristics: {
+        title: "Charakteristika",
+        appearance: {
+          title: "Vzhľad",
+          points: [
+            "Stredná veľkosť, harmonická stavba tela",
+            "Hrdé, vzpriamené držanie tela",
+            "Plná hruď, zužujúca sa línia chrbta",
+            "Krátke, hladké perie, typické variety: jednofarebné, s golierom a so srdcom",
+            "Farebné variácie: červená, žltá, modrá, čierna, biela, plavá",
+            "Živé, výrazné oči",
+            "Stredne dlhý, silný zobák"
+          ]
+        },
+        flying: {
+          title: "Štýl Letu",
+          text: "Najväčšou hodnotou Segedínskeho Vysokolietavého je jeho let. Vznášajú sa do veľkých výšok, potom tam krúžia, takmer vznášajúc sa po dlhú dobu. Ich let je harmonický a elegantný - ako keby tancovali na oblohe. Tento jedinečný štýl letu je výsledkom stáročnej chovateľskej práce."
+        },
+        temperament: {
+          title: "Povaha a Správanie",
+          text: "Inteligentné, živé vtáky, ktoré sa ľahko skrotia. Dobre znášajú ľudskú spoločnosť a ľahko sa ovládajú. Výborní rodičia, ktorí starostlivo vychovávajú svoje mláďatá. Sú odolné a prispôsobivé, ale vyžadujú primeranú starostlivosť."
+        }
+      },
+
+      breeding: {
+        title: "Chovateľské Úvahy",
+        points: [
+          "Dôkladný výber podľa štandardu pred párením",
+          "Testovanie a udržiavanie letových schopností",
+          "Udržiavanie genetickej rozmanitosti",
+          "Udržiavanie zdravého, silného kŕdľa",
+          "Priebežný tréning a lietanie mladých vtákov"
+        ]
+      },
+
+      standard: {
+        title: "Popis Plemena",
+        text: "Plemeno Segedínsky Vysokolietavý má presný popis plemena, ktorý definuje vlastnosti ideálneho jedinca. Popis zahŕňa stavbu tela, farbu a kvalitu peria, ako aj letové schopnosti. Na výstavách sú vtáky posudzované prísne podľa tohto opisu."
+      },
+      ctaSection: {
+        title: "Pozrite si moje fotografie!",
+        text: "Krásne fotografie holubov Segedínsky Vysokolietavý",
+        button: "Pozrieť Galériu"
+      }
+    },
+
+    // Gallery Page
+    gallery: {
+      title: "Galéria",
+      subtitle: "Naše Vtáky",
+      filter: {
+        all: "Všetky",
+        breeding: "Chovný Kmeň",
+        young: "Mladé Vtáky",
+        flying: "Let",
+        events: "Výstavy"
+      },
+      placeholder: "Načítavam obrázok..."
+    },
+
+    // Contact Page
+    contact: {
+      title: "Kontakt",
+      subtitle: "Spojte sa so mnou!",
+      intro: "Ak máte záujem o plemeno Segedínsky Vysokolietavý alebo máte otázky o chove, neváhajte ma kontaktovať!",
+
+      info: {
+        title: "Kontaktné Informácie",
+        name: "Meno:",
+        nameValue: "András Varga",
+        phone: "Telefón:",
+        phoneValue: "+36 30 330 4567",
+        phoneRaw: "+36303304567",
+        email: "E-mail:",
+        emailValue: "varga.major@gmail.com",
+        location: "Lokalita:",
+        locationValue: "Segedín, Maďarsko",
+        revealButton: "Kliknite pre zobrazenie"
+      },
+
+      form: {
+        title: "Odoslať Správu",
+        name: "Meno",
+        namePlaceholder: "Vaše meno",
+        email: "E-mail",
+        emailPlaceholder: "priklad@email.com",
+        subject: "Predmet",
+        subjectPlaceholder: "Ako vám môžem pomôcť?",
+        message: "Správa",
+        messagePlaceholder: "Napíšte svoju správu sem...",
+        submit: "Odoslať Správu"
+      },
+
+      social: {
+        title: "Sociálne Médiá",
+        description: "Nájdete ma na Facebooku, Instagrame a Viberi!"
+      }
+    },
+
+    // Footer
+    footer: {
+      about: {
+        title: "Chov Segedínskeho Vysokolietavého",
+        text: "Chov holubov Segedínsky Vysokolietavý s viac ako 50-ročnými skúsenosťami."
+      },
+      links: {
+        title: "Odkazy",
+        privacy: "Súkromie",
+        terms: "Podmienky Používania"
+      },
+      contact: {
+        title: "Kontakt",
+        email: "Email:",
+        emailValue: "varga.major@gmail.com"
+      },
+      copyright: "Všetky práva vyhradené.",
+      copyrightName: "András Varga",
+      madeWith: "Vytvoril:"
+    }
   }
 };

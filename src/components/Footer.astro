@@ -6,7 +6,9 @@ const isEnglish = pathname.startsWith('/en');
 const isSerbian = pathname.startsWith('/sr');
 const isGerman = pathname.startsWith('/de');
 const isRomanian = pathname.startsWith('/ro');
-const lang = isRomanian ? 'ro' : (isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu')));
+const isPolish = pathname.startsWith('/pl');
+const isSlovak = pathname.startsWith('/sk');
+const lang = isPolish ? 'pl' : (isSlovak ? 'sk' : (isRomanian ? 'ro' : (isGerman ? 'de' : (isSerbian ? 'sr' : (isEnglish ? 'en' : 'hu')))));
 
 const footer = content[lang].footer;
 const nav = content[lang].nav;
@@ -14,7 +16,19 @@ const contactInfo = content[lang].contact.info;
 const currentYear = new Date().getFullYear();
 
 // Adjust navigation links based on language
-const navLinks = isRomanian ? {
+const navLinks = isPolish ? {
+  home: '/pl/',
+  about: '/pl/o-hodowcy',
+  breed: '/pl/o-rasie',
+  gallery: '/pl/galeria',
+  contact: '/pl/kontakt'
+} : isSlovak ? {
+  home: '/sk/',
+  about: '/sk/o-chovatelovi',
+  breed: '/sk/o-rasa',
+  gallery: '/sk/galeria',
+  contact: '/sk/kontakt'
+} : isRomanian ? {
   home: '/ro/',
   about: '/ro/despre-crescator',
   breed: '/ro/despre-rasa',

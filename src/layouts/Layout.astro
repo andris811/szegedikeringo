@@ -14,15 +14,21 @@ const isEnglish = pathname.startsWith("/en");
 const isSerbian = pathname.startsWith("/sr");
 const isGerman = pathname.startsWith("/de");
 const isRomanian = pathname.startsWith("/ro");
-const htmlLang = isRomanian
-  ? "ro"
-  : isGerman
-    ? "de"
-    : isSerbian
-      ? "sr"
-      : isEnglish
-        ? "en"
-        : "hu";
+const isPolish = pathname.startsWith("/pl");
+const isSlovak = pathname.startsWith("/sk");
+const htmlLang = isPolish
+  ? "pl"
+  : isSlovak
+    ? "sk"
+    : isRomanian
+      ? "ro"
+      : isGerman
+        ? "de"
+        : isSerbian
+          ? "sr"
+          : isEnglish
+            ? "en"
+            : "hu";
 
 const {
   title,
@@ -37,11 +43,13 @@ const imageUrl = new URL(image, siteUrl).href;
 
 // Hreflang URLs for multilingual support
 const hreflangs = {
-  hu: siteUrl + pathname.replace(/^\/(en|de|sr|ro)/, ""),
-  en: siteUrl + "/en" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
-  de: siteUrl + "/de" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
-  sr: siteUrl + "/sr" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
-  ro: siteUrl + "/ro" + pathname.replace(/^\/(en|de|sr|ro)/, ""),
+  hu: siteUrl + pathname.replace(/^\/(en|de|sr|ro|pl|sk)/, ""),
+  en: siteUrl + "/en" + pathname.replace(/^\/(en|de|sr|ro|pl|sk)/, ""),
+  de: siteUrl + "/de" + pathname.replace(/^\/(en|de|sr|ro|pl|sk)/, ""),
+  sr: siteUrl + "/sr" + pathname.replace(/^\/(en|de|sr|ro|pl|sk)/, ""),
+  ro: siteUrl + "/ro" + pathname.replace(/^\/(en|de|sr|ro|pl|sk)/, ""),
+  pl: siteUrl + "/pl" + pathname.replace(/^\/(en|de|sr|ro|pl|sk)/, ""),
+  sk: siteUrl + "/sk" + pathname.replace(/^\/(en|de|sr|ro|pl|sk)/, ""),
 };
 ---
 
@@ -70,6 +78,8 @@ const hreflangs = {
     <link rel="alternate" hreflang="de" href={hreflangs.de} />
     <link rel="alternate" hreflang="sr" href={hreflangs.sr} />
     <link rel="alternate" hreflang="ro" href={hreflangs.ro} />
+    <link rel="alternate" hreflang="pl" href={hreflangs.pl} />
+    <link rel="alternate" hreflang="sk" href={hreflangs.sk} />
     <link rel="alternate" hreflang="x-default" href={hreflangs.hu} />
 
     <!-- Open Graph / Facebook -->
@@ -78,7 +88,7 @@ const hreflangs = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:locale" content={htmlLang === "hu" ? "hu_HU" : htmlLang === "en" ? "en_US" : htmlLang === "de" ? "de_DE" : htmlLang === "sr" ? "sr_RS" : "ro_RO"} />
+    <meta property="og:locale" content={htmlLang === "hu" ? "hu_HU" : htmlLang === "en" ? "en_US" : htmlLang === "de" ? "de_DE" : htmlLang === "sr" ? "sr_RS" : htmlLang === "ro" ? "ro_RO" : htmlLang === "pl" ? "pl_PL" : "sk_SK"} />
     <meta property="og:site_name" content="Szegedi Magasszálló Keringő" />
 
     <!-- Twitter -->
@@ -151,7 +161,7 @@ const hreflangs = {
           "https://www.facebook.com/share/1BgL13xgXn/",
           "https://www.instagram.com/andras.varga.104418"
         ],
-        "areaServed": ["Hungary", "Serbia", "Romania", "Germany"],
+        "areaServed": ["Hungary", "Serbia", "Romania", "Germany", "Poland", "Slovakia"],
         "knowsAbout": ["Szegedi Magasszálló Keringő", "Galambtenyésztés", "Magyar galambfajták"],
         "slogan": "Hagyomány, Szépség és Szabadság"
       }

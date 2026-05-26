@@ -3,9 +3,11 @@
 const { pathname } = Astro.url;
 const isEnglish = pathname.startsWith('/en');
 const isSerbian = pathname.startsWith('/sr');
-const homeUrl = isSerbian ? '/sr/' : (isEnglish ? '/en/' : '/');
-const logoAlt = isSerbian ? 'Segedinski Viskoleti Logo' : (isEnglish ? 'Szegedin Highflyer Logo' : 'Szegedi Magasszálló Keringő Logo');
-const logoText = isSerbian ? 'Segedinski Viskoleti' : (isEnglish ? 'Szegedin Highflyer' : 'Szegedi Magasszálló Keringő');
+const isPolish = pathname.startsWith('/pl');
+const isSlovak = pathname.startsWith('/sk');
+const homeUrl = isPolish ? '/pl/' : (isSlovak ? '/sk/' : (isSerbian ? '/sr/' : (isEnglish ? '/en/' : '/')));
+const logoAlt = isPolish ? 'Segedyński Wysokolotny Logo' : (isSlovak ? 'Segedínsky Vysokolietavý Logo' : (isSerbian ? 'Segedinski Viskoleti Logo' : (isEnglish ? 'Szegedin Highflyer Logo' : 'Szegedi Magasszálló Keringő Logo')));
+const logoText = isPolish ? 'Segedyński Wysokolotny' : (isSlovak ? 'Segedínsky Vysokolietavý' : (isSerbian ? 'Segedinski Viskoleti' : (isEnglish ? 'Szegedin Highflyer' : 'Szegedi Magasszálló Keringő')));
 ---
 
 <a href={homeUrl} class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
